@@ -1,1 +1,1 @@
-# bsouthga.github.io
+A landing page for the innernette.
