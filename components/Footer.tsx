@@ -27,7 +27,7 @@ export default function Footer(): JSX.Element {
     <footer className={styles("footer")}>
       Ben Southgate, 2020 - &nbsp;
       <a
-        href="https://github.com/bsouthga/bsouthga.github.io"
+        href="https://github.com/bsouthga/bsouthga.dev"
         target="_blank"
         className={styles("link")}
       >

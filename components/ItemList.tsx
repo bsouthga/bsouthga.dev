@@ -48,8 +48,9 @@ function Item(props: ItemProps): JSX.Element {
     <>
       <a className={styles("image")} href={props.link} target="_blank">
         <Image
-          width={900}
-          height={400}
+          width={600}
+          height={267}
+          alt={props.title}
           src={`/assets/images/${props.image}`}
           objectFit="cover"
         />
