@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Laughing All the Way to the Crash",
+    "context": "The Atlantic (2015)",
+    "description": "A search for humor in 20 years of Fed meeting transcripts reveals that LOLing peaked right before the recession.",
+    "link": "https://www.theatlantic.com/business/archive/2015/03/laughter-in-fed-transcripts/388027/",
+    "image": "funnyfed-color.png"
+  },
+  {
+    "title": "d3-exploder",
+    "context": "Side Project (2015)",
+    "description": "D3.js plugin for mapping svg features within a map to x,y coordinates.",
+    "link": "http://bsouthga.github.io/d3-exploder/",
+    "image": "d3-exploder.png"
+  },
+  {
+    "title": "Mapping America's Futures",
+    "context": "Urban Institute (2014)",
+    "description": "Interactive map showing demographic projections for the United States, reaching out to 2030.",
+    "image": "MAF.png",
+    "link": "https://apps.urban.org/features/mapping-americas-futures/"
+  },
+  {
+    "title": "Mapping gunshots near DC schools",
+    "context": "Urban Institute (2014)",
+    "description": "Some DC schools have been in close range of as many as 16 gunfire incidents in the course of a school year, according to Urban Institute analysis.",
+    "link": "https://apps.urban.org/features/everydayviolence/",
+    "image": "everydayviolence.png"
+  },
+  {
+    "title": "Interactive Pension Policy Simulator",
+    "context": "Urban Institute (2014)",
+    "description": "This javascript tool enables experimentation with pension policy parameters, showing changes to individual outcomes.",
+    "link": "https://apps.urban.org/features/build-your-own-pension/",
+    "image": "build-your-own-pension.png"
+  }
+]
