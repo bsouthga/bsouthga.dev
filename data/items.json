@@ -1,5 +1,12 @@
 [
   {
+    "title": "Innerself Hacker News",
+    "context": "Side Project (2017)",
+    "description": "4KB hacker news clone using the tiny `innerself` js library.",
+    "image": "innerself.png",
+    "link": "https://github.com/bsouthga/innerself-hn"
+  },
+  {
     "title": "Laughing All the Way to the Crash",
     "context": "The Atlantic (2015)",
     "description": "A search for humor in 20 years of Fed meeting transcripts reveals that LOLing peaked right before the recession.",
