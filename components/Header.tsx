@@ -1,5 +1,6 @@
 import style9 from "style9";
 import Image from "next/image";
+import ImageWrapper from "components/ImageWrapper";
 
 const styles = style9.create({
   root: {
@@ -27,14 +28,6 @@ const styles = style9.create({
   },
   main: {
     flexGrow: 1,
-  },
-  image: {
-    flexGrow: 0,
-    flexShrink: 0,
-    lineHeight: 0,
-    borderColor: "#000",
-    borderStyle: "solid",
-    borderWidth: 1,
   },
 });
 
@@ -65,9 +58,9 @@ export default function Header(): JSX.Element {
           </a>
         </div>
       </div>
-      <div className={styles("image")}>
+      <ImageWrapper>
         <Image width={80} height={80} src="/assets/images/face.jpg" />
-      </div>
+      </ImageWrapper>
     </div>
   );
 }

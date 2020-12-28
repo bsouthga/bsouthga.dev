@@ -1,6 +1,7 @@
 import style9 from "style9";
 import Image from "next/image";
 import items from "public/data/items.json";
+import ImageWrapper from "components/ImageWrapper";
 
 const styles = style9.create({
   itemGrid: {
@@ -23,12 +24,6 @@ const styles = style9.create({
       paddingBottom: 30,
     },
   },
-  image: {
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderColor: "#000",
-    lineHeight: 0,
-  },
   context: {
     fontStyle: "italic",
   },
@@ -45,14 +40,16 @@ type ItemProps = {
 function Item(props: ItemProps): JSX.Element {
   return (
     <>
-      <a className={styles("image")} href={props.link} target="_blank">
-        <Image
-          width={600}
-          height={267}
-          alt={props.title}
-          src={`/assets/images/${props.image}`}
-          objectFit="cover"
-        />
+      <a href={props.link} target="_blank">
+        <ImageWrapper>
+          <Image
+            width={600}
+            height={267}
+            alt={props.title}
+            src={`/assets/images/${props.image}`}
+            objectFit="cover"
+          />
+        </ImageWrapper>
       </a>
       <div className={styles("description")}>
         <h3>

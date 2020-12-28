@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import ReactMarkdown from "react-markdown";
 import Layout from "components/Layout";
 import { getPost, getPostFiles, PostMetadata } from "lib/posts";
+import PostContent from "components/PostContent";
 
 type Query = {
   id: string;
@@ -37,7 +37,7 @@ export default function Post(props: Props): JSX.Element {
   const { post } = props;
   return (
     <Layout>
-      <ReactMarkdown>{post.content}</ReactMarkdown>
+      <PostContent post={post} />
     </Layout>
   );
 }

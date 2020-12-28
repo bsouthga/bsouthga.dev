@@ -13,14 +13,15 @@ Color is one of the most powerful tools for conveying information about data. Di
 One way to convey continuous variation through colors is by using a [gradient](http://en.wikipedia.org/wiki/Color_gradient). Most graphics applications provide an easy and intuitive way to apply a gradient to a project or dataset. The ubiquitous Microsoft Excel is an easy example, with its suprisingly useful [conditional formatting](http://office.microsoft.com/en-us/excel-help/quick-start-apply-conditional-formatting-HA010370614.aspx). Interested in how these spectra are actually constructed, I decided to try out a few ways of manually calculating color gradients using Python, given some desired input colors. Here's what I came up with!
 
 ## Colors as points in 3D space
-In order to "calculate" color gradients, we must first think of them as mathematical objects. Fortunately, as with everything on a computer, colors are represented numerically. This normally done as a sequence of three numbers indicating the varying amounts of [Red, Green, and Blue](http://en.wikipedia.org/wiki/Color#Additive_coloring), either in decimal tuple (70,130,180) or hex triplet (#4682B4) form (both examples given represent steel blue, the main color used on this site). This means we can think of a color abstractly as a vector (@@@\vec{c}@@@) in three dimensional space.
 
-@@@\displaystyle
+In order to "calculate" color gradients, we must first think of them as mathematical objects. Fortunately, as with everything on a computer, colors are represented numerically. This normally done as a sequence of three numbers indicating the varying amounts of [Red, Green, and Blue](http://en.wikipedia.org/wiki/Color#Additive_coloring), either in decimal tuple (70,130,180) or hex triplet (#4682B4) form (both examples given represent steel blue, the main color used on this site). This means we can think of a color abstractly as a vector ($$\vec{c}$$) in three dimensional space.
+
+$$
+\displaystyle
   \vec{c} = [ {\color{red} R}, {\color{green} G}, {\color{blue} B} ]
-@@@
+$$
 
 Practically, within Python, I sometimes want to pass these colors / vectors as hex triplet strings and other times as RGB tuples (implemented as lists to allow [mutable components](http://en.wikipedia.org/wiki/Immutable_object)). Here are two basic functions I ended up using for converting accross formats:
-
 
 ```python
 def hex_to_RGB(hex):
@@ -37,21 +38,21 @@ def RGB_to_hex(RGB):
             "{0:x}".format(v) for v in RGB])
 ```
 
-With colors as vectors, gradients can then be thought of as functions of colors, with each component of @@@\vec{c}@@@ evolving for different input values.
+With colors as vectors, gradients can then be thought of as functions of colors, with each component of $$\vec{c}$$ evolving for different input values.
 
 ## Linear Gradients and Linear Interpolation
 
-The simplest type of gradient we can have between two colors is a linear gradient. As the name suggests, this gradient is a function representing a line between the two input colors. The following is an example of a gradient that varies from black to gray to white, taking in a value of @@@t \in [0,1]@@@ which specifies how far along the gradient the desired output color should be:
+The simplest type of gradient we can have between two colors is a linear gradient. As the name suggests, this gradient is a function representing a line between the two input colors. The following is an example of a gradient that varies from black to gray to white, taking in a value of $$t \in [0,1]$$ which specifies how far along the gradient the desired output color should be:
 
-@@@
+$$
 \displaystyle
  gradient(t) = \vec{c}_1 + (t)\left(\vec{c}_2-\vec{c}_1\right)
-@@@
+$$
 
-@@@
+$$
 \displaystyle
 BlackToWhite(t) = [0,0,0] + (t)[255,255,255]
-@@@
+$$
 
 In Python, I implemented this as a function which, given two hex imputs, returns a dictionary containing a desired number of hex colors evenly spaced between them as well as the corresponding RGB decimal components as individual series.
 
@@ -91,12 +92,11 @@ def linear_gradient(start_hex, finish_hex="#FFFFFF", n=10):
 
 Outputting the RGB components as points in 3D space, and coloring the points with their corresponding hex notation gives us something like this (gradient ranges from `#4682B4` to `#FFB347`):
 
-<img src="/images/blueorange.png"/>
+![](/assets/images/blueorange.png)
 
 ## Multiple Linear Gradients <span>&#8658;</span> Polylinear Interpolation
 
 While one linear gradient is fun, multiple linear gradients are more fun. Taking `linear_gradient()` and wrapping it in a function which takes in a series of colors, we get the following gradient function (I've also included a function for generating random hex colors, so I don't have to spend time choosing examples):
-
 
 ```python
 from numpy import random as rnd
@@ -136,27 +136,25 @@ def polylinear_gradient(colors, n):
 
 This means we can pick a few colors we want to our data to "evolve through", and get back a series of corresponding interpolated colors. Below is an example of linear gradients running through 5 different random colors, with 50 total interpolated colors.
 
-<img src="/images/polyline.png"/>
+![](/assets/images/polyline.png)
 
 While this serves the purpose of providing a gradient through multiple colors, it does so in a sort of jagged, inelegant way. What would be better is a smooth evolution accross the colors, with each input color providing various amounts of influence as we move through the gradient. For this, we can turn to Bezier Curves.
 
-
 ## Nonlinear Gradients: Bezier Interpolation
 
-While I will leave the denser mathematical description of Bezier Curves to [Wikipedia](http://en.wikipedia.org/wiki/B%C3%A9zier_curve) and [this guys awesome notes (PDF)](http://cagd.cs.byu.edu/~557/text/ch2.pdf), they can easily be used to provide smooth gradients through various control colors (corresponding to Bezier control points). To implement Bezier gradients in Python, I took advantage of the following polynomial notation for n-degree Bezier curves (@@@{B}(t)@@@) through @@@n+1@@@ control colors (@@@\vec{c}_i@@@):
+While I will leave the denser mathematical description of Bezier Curves to [Wikipedia](http://en.wikipedia.org/wiki/B%C3%A9zier_curve) and [this guys awesome notes (PDF)](http://cagd.cs.byu.edu/~557/text/ch2.pdf), they can easily be used to provide smooth gradients through various control colors (corresponding to Bezier control points). To implement Bezier gradients in Python, I took advantage of the following polynomial notation for n-degree Bezier curves ($${B}(t)$$) through $$n+1$$ control colors ($$\vec{c}_i$$):
 
-
-@@@
+$$
   \displaystyle
   {B}(t) = \sum_{i=0}^{n}\left({b}_{i,n}(t)\vec{c}_i \right) \qquad {b}_{i,n}(t) = \left(\frac{n!}{i!(n-i)!}\right)t^i(1-t)^{n-i}
-@@@
+$$
 
-@@@
+$$
   \displaystyle
   t\in [0,1] \quad\quad i\in \{x | x \in {Z}, 0 \leq x \leq n\}
-@@@
+$$
 
-The Python implementation of this took the following form, with a helper function for the Bernstein coefficient. I also chose to [memoize the factorial function](http://en.wikipedia.org/wiki/Memoization), it can be expected that the inputs will be consistantly similar due to its range consisting of integers in @@@[0,255]@@@ and its recursive implementation.
+The Python implementation of this took the following form, with a helper function for the Bernstein coefficient. I also chose to [memoize the factorial function](http://en.wikipedia.org/wiki/Memoization), it can be expected that the inputs will be consistantly similar due to its range consisting of integers in $$[0,255]$$ and its recursive implementation.
 
 ```python
 # Value cache
@@ -219,7 +217,7 @@ def bezier_gradient(colors, n_out=100):
 
 The result of this more technical gradient calculation is a smoother range, influenced by its given control colors. The following example takes in 3 control colors, but the above function can handle Bezier Curves of arbitrary degree.
 
-<img src="/images/bezier_example.png"/>
+![](/assets/images/bezier_example.png)
 
 ## Matplotlib Plotting Stuff
 

@@ -22,13 +22,16 @@ export default function Posts(props: Props) {
   return (
     <Layout>
       <ul>
-        {posts.map((post) => (
-          <li>
-            <Link href={`/posts/${post.filename}`}>
-              <a>{post.title}</a>
-            </Link>
-          </li>
-        ))}
+        {posts.map((post) => {
+          const href = `/posts/${post.filename}`;
+          return (
+            <li key={href}>
+              <Link href={href}>
+                <a>{post.title}</a>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </Layout>
   );
