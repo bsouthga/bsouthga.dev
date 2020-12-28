@@ -43,7 +43,8 @@
     "context": "Urban Institute (2014)",
     "description": "Interactive map showing demographic projections for the United States, reaching out to 2030.",
     "image": "MAF.png",
-    "link": "https://apps.urban.org/features/mapping-americas-futures/"
+    "link": "https://apps.urban.org/features/mapping-americas-futures/",
+    "github": "https://github.com/UrbanInstitute/mapping-americas-futures_development"
   },
   {
     "title": "Mapping gunshots near DC schools",
