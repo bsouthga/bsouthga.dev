@@ -1,6 +1,7 @@
 import style9 from "style9";
 import Image from "next/image";
 import ImageWrapper from "components/ImageWrapper";
+import Link from "next/Link";
 
 const styles = style9.create({
   root: {
@@ -59,6 +60,14 @@ export default function Header(): JSX.Element {
               src="assets/ionicons/stack-overflow.svg"
             />
           </a>
+          <Link href="/posts">
+            <a>
+              <img
+                className={styles("icon")}
+                src="assets/ionicons/newspaper.svg"
+              />
+            </a>
+          </Link>
         </div>
       </div>
       <ImageWrapper>
