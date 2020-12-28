@@ -1,6 +1,6 @@
 import { getAllPosts, PostMetadata } from "lib/posts";
 import Layout from "components/Layout";
-import Link from "next/link";
+import Link from "next/Link";
 import { GetStaticProps } from "next";
 
 type Props = {
