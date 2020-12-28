@@ -39,13 +39,16 @@ export default function Header(): JSX.Element {
         <div className={styles("social")}>
           <div>@bsouthga -</div>
           <a href="https://github.com/bsouthga" target="_blank">
-            <img className={styles("icon")} src="assets/icons/github.svg" />
+            <img className={styles("icon")} src="assets/ionicons/github.svg" />
           </a>
           <a href="https://twitter.com/bsouthga" target="_blank">
-            <img className={styles("icon")} src="assets/icons/twitter.svg" />
+            <img className={styles("icon")} src="assets/ionicons/twitter.svg" />
           </a>
           <a href="https://www.linkedin.com/in/bensouthgate/" target="_blank">
-            <img className={styles("icon")} src="assets/icons/linkedin.svg" />
+            <img
+              className={styles("icon")}
+              src="assets/ionicons/linkedin.svg"
+            />
           </a>
           <a
             href="https://stackoverflow.com/users/1718488/ben-southgate"
@@ -53,7 +56,7 @@ export default function Header(): JSX.Element {
           >
             <img
               className={styles("icon")}
-              src="assets/icons/stack-overflow.svg"
+              src="assets/ionicons/stack-overflow.svg"
             />
           </a>
         </div>

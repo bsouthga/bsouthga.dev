@@ -29,7 +29,7 @@ export default function Footer(): JSX.Element {
         target="_blank"
         className={styles("link")}
       >
-        <img className={styles("github")} src="assets/icons/github.svg" />
+        <img className={styles("github")} src="assets/ionicons/github.svg" />
       </a>
     </footer>
   );
