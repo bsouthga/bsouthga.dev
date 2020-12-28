@@ -45,6 +45,8 @@ export default function Post(props: Props): JSX.Element {
           integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
           crossOrigin="anonymous"
         />
+        <title>{post.title} | Ben Southgate</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostContent post={post} />
     </Layout>
