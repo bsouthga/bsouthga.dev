@@ -2,9 +2,22 @@ import ReactMarkdown from "react-markdown";
 import { PostMetadata } from "lib/posts";
 import Katex from "components/Katex";
 import math from "remark-math";
-import Image from "next/image";
 import ImageWrapper from "components/ImageWrapper";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
 import styles from "components/PostContent.module.css";
+
+const SYNTAX_CUSTOM_STYLE = {
+  lineHeight: "1",
+  fontSize: "1.2em",
+};
+
+const SYNTAX_CODE_TAG_PROPS = {
+  style: {
+    lineHeight: "inherit",
+    fontSize: "inherit",
+  },
+};
 
 const RENDERERS = {
   inlineMath: ({ value }: { value: string }) => <Katex code={value} />,
@@ -12,13 +25,24 @@ const RENDERERS = {
   image: ({ src }: { src: string }) => {
     return (
       <ImageWrapper>
-        <Image width="100%" height="auto" layout="responsive" src={src} />
+        <img width="100%" height="auto" src={src} />
       </ImageWrapper>
     );
   },
   // override paragraphs to allow div nesting
   paragraph: ({ children }) => {
     return <div className={styles.paragraph}>{children}</div>;
+  },
+  code: ({ language, value }) => {
+    return (
+      <SyntaxHighlighter
+        className={styles.code}
+        customStyle={SYNTAX_CUSTOM_STYLE}
+        codeTagProps={SYNTAX_CODE_TAG_PROPS}
+        language={language}
+        children={value}
+      />
+    );
   },
 };
 

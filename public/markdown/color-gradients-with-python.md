@@ -94,7 +94,7 @@ Outputting the RGB components as points in 3D space, and coloring the points wit
 
 ![](/assets/images/blueorange.png)
 
-## Multiple Linear Gradients <span>&#8658;</span> Polylinear Interpolation
+## Multiple Linear Gradients &#8658; Polylinear Interpolation
 
 While one linear gradient is fun, multiple linear gradients are more fun. Taking `linear_gradient()` and wrapping it in a function which takes in a series of colors, we get the following gradient function (I've also included a function for generating random hex colors, so I don't have to spend time choosing examples):
 

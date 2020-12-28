@@ -1,3 +1,7 @@
 .paragraph {
   margin-bottom: 1em;
 }
+
+.code {
+  border: 1px solid #000;
+}
