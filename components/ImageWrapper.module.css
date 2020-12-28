@@ -1,0 +1,6 @@
+.root {
+  display: block;
+  flex-grow: 0;
+  border: 1px solid #000;
+  line-height: 0;
+}
