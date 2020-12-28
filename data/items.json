@@ -2,7 +2,7 @@
   {
     "title": "Detection & Alerting at FB",
     "context": "Systems @Scale 2019",
-    "description": "Talk I gave at Systems @Scale 2019 in Tel-Aviv on how Facebook approaches monitoring significant metric movements.",
+    "description": "Talk I gave at Systems @Scale 2019 in Tel Aviv on how Facebook approaches monitoring significant metric movements.",
     "image": "atscale.jpg",
     "link": "https://atscaleconference.com/videos/systems-scale-2019-detection-alerting-at-fb-detecting-significant-metric-movements-scale/"
   },
