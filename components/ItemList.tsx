@@ -1,11 +1,10 @@
 import style9 from "style9";
 import Image from "next/image";
-import items from "data/items.json";
+import items from "public/data/items.json";
 
 const styles = style9.create({
   itemGrid: {
     width: "100%",
-    maxWidth: 600,
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     gridRowGap: "20px",

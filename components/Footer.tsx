@@ -3,9 +3,7 @@ import style9 from "style9";
 const styles = style9.create({
   footer: {
     width: "100%",
-    maxWidth: 600,
     display: "flex",
-
     justifyContent: "center",
     borderTopColor: "#000",
     borderTopWidth: 1,

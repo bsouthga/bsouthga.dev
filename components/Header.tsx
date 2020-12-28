@@ -4,7 +4,6 @@ import Image from "next/image";
 const styles = style9.create({
   root: {
     width: "100%",
-    maxWidth: 600,
     display: "flex",
     flexDirection: "row",
     borderBottomColor: "#000",
