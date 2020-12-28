@@ -3,6 +3,7 @@ import Layout from "components/Layout";
 import { getPost, getPostFiles, PostMetadata } from "lib/posts";
 import PostContent from "components/PostContent";
 import Head from "next/head";
+import formatDate from "lib/formatDate";
 
 type Query = {
   id: string;
@@ -48,6 +49,8 @@ export default function Post(props: Props): JSX.Element {
         <title>{post.title} | Ben Southgate</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <h1>{post.title}</h1>
+      <h3>{formatDate(post.date)}</h3>
       <PostContent post={post} />
     </Layout>
   );

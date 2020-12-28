@@ -1,14 +1,8 @@
 ---
 date: 01/04/2014
-subtitle:  A basic class for an easily subsetable dictionary using Python's <a href=\http://docs.python.org/2/library/collections.html#namedtuple-factory-function-for-tuples-with-named-fields\>namedtuple</a> as keys for multidimensional indexing
+subtitle: A basic class for an easily subsetable dictionary using Python's namedtuple as keys for multidimensional indexing
 title: Indexing with namedtuple
 ---
-
-# Indexing with `namedtuple`
-
-
-### A basic class for an easily subsetable dictionary using Python's [`namedtuple`](http://docs.python.org/2/library/collections.html#namedtuple-factory-function-for-tuples-with-named-fields) as keys for multidimensional indexing
-
 
 Dictionaries/HashMaps/[HashTables](http://en.wikipedia.org/wiki/Hash_table) are great. Having items stored and returned at constant time complexity makes building up data structures, and finding items within them, a breeze.
 

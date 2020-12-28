@@ -4,10 +4,6 @@ subtitle: Investigating a few "Pythonic" ways to calculate gradients across give
 title": Color gradients with Python
 ---
 
-# Color gradients with Python
-
-### Investigating a few "Pythonic" ways to calculate gradients across given input colors (12.03.13)
-
 Color is one of the most powerful tools for conveying information about data. Differences in color can inspire or imply emotions [(positive or negative)](http://www.twittermood.org/), give a sense of magnitude [(dark and dense, or light and sparse)](http://www.dwtkns.com/density/), or even hint at political persuasion [(redness" and "blueness" of states on a map)](http://elections.nytimes.com/2012/results/president).
 
 One way to convey continuous variation through colors is by using a [gradient](http://en.wikipedia.org/wiki/Color_gradient). Most graphics applications provide an easy and intuitive way to apply a gradient to a project or dataset. The ubiquitous Microsoft Excel is an easy example, with its suprisingly useful [conditional formatting](http://office.microsoft.com/en-us/excel-help/quick-start-apply-conditional-formatting-HA010370614.aspx). Interested in how these spectra are actually constructed, I decided to try out a few ways of manually calculating color gradients using Python, given some desired input colors. Here's what I came up with!

@@ -2,6 +2,7 @@ import { getAllPosts, PostMetadata } from "lib/posts";
 import Layout from "components/Layout";
 import Link from "next/link";
 import { GetStaticProps } from "next";
+import formatDate from "lib/formatDate";
 
 type Props = {
   posts: Omit<PostMetadata, "content">[];
@@ -21,18 +22,22 @@ export default function Posts(props: Props) {
 
   return (
     <Layout>
-      <ul>
-        {posts.map((post) => {
-          const href = `/posts/${post.filename}`;
-          return (
-            <li key={href}>
+      <h1>Posts</h1>
+      {posts.map((post) => {
+        const href = `/posts/${post.filename}`;
+        return (
+          <div key={href}>
+            <h3>
               <Link href={href}>
-                <a>{post.title}</a>
+                <a>
+                  {formatDate(post.date)} - {post.title}
+                </a>
               </Link>
-            </li>
-          );
-        })}
-      </ul>
+            </h3>
+            <p>{post.subtitle}</p>
+          </div>
+        );
+      })}
     </Layout>
   );
 }
