@@ -2,6 +2,7 @@ import style9 from "style9";
 
 const styles = style9.create({
   root: {
+    display: "block",
     flexGrow: 0,
     borderStyle: "solid",
     borderWidth: 1,
@@ -16,5 +17,5 @@ type ImageWrapperProps = {
 
 export default function ImageWrapper(props: ImageWrapperProps): JSX.Element {
   const { children } = props;
-  return <div className={styles("root")}>{children}</div>;
+  return <span className={styles("root")}>{children}</span>;
 }

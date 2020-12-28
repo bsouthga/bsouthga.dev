@@ -4,6 +4,13 @@ import Katex from "components/Katex";
 import math from "remark-math";
 import Image from "next/image";
 import ImageWrapper from "components/ImageWrapper";
+import style9 from "style9";
+
+const styles = style9.create({
+  paragraph: {
+    marginBottom: "1em",
+  },
+});
 
 const RENDERERS = {
   inlineMath: ({ value }: { value: string }) => <Katex code={value} />,
@@ -14,6 +21,10 @@ const RENDERERS = {
         <Image width="100%" height="auto" layout="responsive" src={src} />
       </ImageWrapper>
     );
+  },
+  // override paragraphs to allow div nesting
+  paragraph: ({ children }) => {
+    return <div className={styles("paragraph")}>{children}</div>;
   },
 };
 
