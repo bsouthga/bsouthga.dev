@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ImageWrapper from "components/ImageWrapper";
-import Link from "next/Link";
+import Link from "next/link";
 import styles from "components/Header.module.css";
 
 export default function Header(): JSX.Element {
