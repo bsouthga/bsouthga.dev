@@ -27,3 +27,15 @@
 .context {
   font-style: italic;
 }
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.title h3 {
+  margin: 0px;
+  margin-right: 6px;
+}

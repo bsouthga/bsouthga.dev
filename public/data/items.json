@@ -8,24 +8,35 @@
   },
   {
     "title": "Innerself Hacker News",
-    "context": "Side Project (2017)",
+    "context": "Fun/Tinkering (2017)",
     "description": "4KB hacker news clone using the tiny `innerself` js library.",
     "image": "innerself.png",
-    "link": "https://github.com/bsouthga/innerself-hn"
+    "github": "https://github.com/bsouthga/innerself-hn",
+    "link": "https://innerself-hn.com"
+  },
+  {
+    "title": "Pythagoras Fractal in Elm",
+    "context": "Fun/Tinkering (2016)",
+    "description": "Playing around with elm-lang and fractals.",
+    "image": "pythagoras-fractal.png",
+    "link": "https://bsouthga.github.io/pythagoras-fractal/",
+    "github": "https://github.com/bsouthga/pythagoras-fractal"
   },
   {
     "title": "Laughing All the Way to the Crash",
     "context": "The Atlantic (2015)",
     "description": "A search for humor in 20 years of Fed meeting transcripts reveals that LOLing peaked right before the recession.",
     "link": "https://www.theatlantic.com/business/archive/2015/03/laughter-in-fed-transcripts/388027/",
+    "github": "https://github.com/bsouthga/funnyfed",
     "image": "funnyfed-color.png"
   },
   {
     "title": "d3-exploder",
-    "context": "Side Project (2015)",
+    "context": "Fun/Tinkering (2015)",
     "description": "D3.js plugin for mapping svg features within a map to x,y coordinates.",
     "link": "http://bsouthga.github.io/d3-exploder/",
-    "image": "d3-exploder.png"
+    "image": "d3-exploder.png",
+    "github": "https://github.com/bsouthga/d3-exploder"
   },
   {
     "title": "Mapping America's Futures",
@@ -46,6 +57,7 @@
     "context": "Urban Institute (2014)",
     "description": "This javascript tool enables experimentation with pension policy parameters, showing changes to individual outcomes.",
     "link": "https://apps.urban.org/features/build-your-own-pension/",
-    "image": "build-your-own-pension.png"
+    "image": "build-your-own-pension.png",
+    "github": "https://github.com/UrbanInstitute/build-your-own-pension"
   }
 ]
