@@ -47,7 +47,7 @@ $$
 
 $$
 \displaystyle
-BlackToWhite(t) = [0,0,0] + (t)[255,255,255]
+BToW(t) = [0,0,0] + (t)[255,255,255]
 $$
 
 In Python, I implemented this as a function which, given two hex imputs, returns a dictionary containing a desired number of hex colors evenly spaced between them as well as the corresponding RGB decimal components as individual series.
