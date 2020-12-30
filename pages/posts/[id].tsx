@@ -3,8 +3,7 @@ import Layout from "components/Layout";
 import { getPost, getPostFiles, PostMetadata } from "lib/posts";
 import PostContent from "components/PostContent";
 import Head from "next/head";
-import formatDate from "lib/formatDate";
-import Link from "next/link";
+import PostHeader from "components/PostHeader";
 
 type Query = {
   id: string;
@@ -50,15 +49,7 @@ export default function Post(props: Props): JSX.Element {
         <title>{post.title} | Ben Southgate</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>{post.title}</h1>
-      <h4>
-        {formatDate(post.date)} -{" "}
-        <Link
-          href={`https://github.com/bsouthga/bsouthga.dev/tree/master/public/markdown/${post.filename}.md`}
-        >
-          <a>(view source)</a>
-        </Link>
-      </h4>
+      <PostHeader post={post} />
       <PostContent post={post} />
     </Layout>
   );

@@ -5,3 +5,9 @@
 .code {
   border: 1px solid #000;
 }
+
+.footnote {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}

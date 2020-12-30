@@ -2,7 +2,8 @@ import Image from "next/image";
 import items from "public/data/items.json";
 import ImageWrapper from "components/ImageWrapper";
 import styles from "components/ItemList.module.css";
-import GithubLink from "components/GithubLink";
+import IconLink from "components/IconLink";
+import Link from "next/link";
 
 type ItemProps = {
   title: string;
@@ -30,11 +31,13 @@ function Item(props: ItemProps): JSX.Element {
       <div className={styles.description}>
         <div className={styles.title}>
           <h3>
-            <a href={props.link} target="_blank">
-              {props.title}
-            </a>
+            <Link href={props.link}>
+              <a>{props.title}</a>
+            </Link>
           </h3>
-          {props.github != null && <GithubLink href={props.github} />}
+          {props.github != null && (
+            <IconLink icon="github" href={props.github} />
+          )}
         </div>
         <p className={styles.context}>{props.context}</p>
         <p>{props.description}</p>

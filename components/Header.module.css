@@ -12,6 +12,10 @@
   font-weight: normal;
 }
 
+.name a:not(:hover) {
+  text-decoration: none;
+}
+
 .social {
   display: flex;
   flex-direction: row;

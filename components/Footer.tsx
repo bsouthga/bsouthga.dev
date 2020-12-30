@@ -1,11 +1,15 @@
 import styles from "components/Footer.module.css";
-import GithubLink from "components/GithubLink";
+import IconLink from "components/IconLink";
 
 export default function Footer(): JSX.Element {
   return (
     <footer className={styles.footer}>
       Ben Southgate, 2020 - &nbsp;
-      <GithubLink href="https://github.com/bsouthga/bsouthga.dev" />
+      <IconLink
+        alt="view the source of this website on github"
+        icon="github"
+        href="https://github.com/bsouthga/bsouthga.dev"
+      />
     </footer>
   );
 }

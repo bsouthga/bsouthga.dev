@@ -3,6 +3,7 @@ import Layout from "components/Layout";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 import formatDate from "lib/formatDate";
+import Head from "next/head";
 
 type Props = {
   posts: Omit<PostMetadata, "content">[];
@@ -22,6 +23,9 @@ export default function Posts(props: Props) {
 
   return (
     <Layout>
+      <Head>
+        <title>Posts | Ben Southgate</title>
+      </Head>
       <h1>Posts</h1>
       {posts.map((post) => {
         const href = `/posts/${post.filename}`;

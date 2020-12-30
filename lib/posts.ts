@@ -15,6 +15,7 @@ export type PostMetadata = {
   title: string;
   filename: string;
   content: string;
+  github?: string;
 };
 
 export async function getPostFiles(): Promise<string[]> {
@@ -45,6 +46,7 @@ function parsePostMetadata(filename: string, post: string): PostMetadata {
     date: metadata["date"],
     subtitle: metadata["subtitle"],
     title: metadata["title"],
+    github: metadata["github"] ?? null,
     filename: filename.replace(/\.md$/, ""),
     content,
   };
