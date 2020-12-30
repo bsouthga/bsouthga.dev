@@ -11,8 +11,8 @@
     "link": "/posts/pca-image-classification",
     "github": "https://github.com/bsouthga/pca-image-classification",
     "image": "eig_1_heatmap.png",
-    "context": "Project for STAT6215 as part of my M.S. (2017)",
-    "description": "Using classic statistical methods (Principal Component and Linear Discriminant Analysis) to classify images."
+    "context": "GWU (2017)",
+    "description": "Project for STAT6215 at GWU (part of my M.S. coursework) using classic statistical methods (Principal Component and Linear Discriminant Analysis) to classify images."
   },
   {
     "title": "Innerself Hacker News",
