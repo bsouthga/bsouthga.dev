@@ -142,7 +142,12 @@ While I will leave the denser mathematical description of Bezier Curves to [Wiki
 
 $$
   \displaystyle
-  {B}(t) = \sum_{i=0}^{n}\left({b}_{i,n}(t)\vec{c}_i \right) \qquad {b}_{i,n}(t) = \left(\frac{n!}{i!(n-i)!}\right)t^i(1-t)^{n-i}
+  {B}(t) = \sum_{i=0}^{n}\left({b}_{i,n}(t)\vec{c}_i \right)
+$$
+
+$$
+\displaystyle
+  {b}_{i,n}(t) = \left(\frac{n!}{i!(n-i)!}\right)t^i(1-t)^{n-i}
 $$
 
 $$
