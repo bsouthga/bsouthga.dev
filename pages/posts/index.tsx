@@ -1,6 +1,5 @@
 import { getAllPosts, PostMetadata } from "lib/posts";
 import Layout from "components/Layout";
-import Link from "next/link";
 import { GetStaticProps } from "next";
 import formatDate from "lib/formatDate";
 import Head from "next/head";
@@ -32,11 +31,9 @@ export default function Posts(props: Props) {
         return (
           <div key={href}>
             <h3>
-              <Link prefetch={false} href={href}>
-                <a>
-                  {formatDate(post.date)} - {post.title}
-                </a>
-              </Link>
+              <a href={href}>
+                {formatDate(post.date)} - {post.title}
+              </a>
             </h3>
             <p>{post.subtitle}</p>
           </div>
