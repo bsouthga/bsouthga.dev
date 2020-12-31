@@ -32,7 +32,7 @@ export default function Posts(props: Props) {
         return (
           <div key={href}>
             <h3>
-              <Link href={href}>
+              <Link prefetch={false} href={href}>
                 <a>
                   {formatDate(post.date)} - {post.title}
                 </a>
