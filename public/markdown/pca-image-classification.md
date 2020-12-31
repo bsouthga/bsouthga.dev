@@ -52,8 +52,11 @@ While PCA is clearly useful in combatting inherent issues with the image data, o
 To get around this issue, we can use the fact that the number of non-zero eigenvalues (corresponding to useful principal components) is bounded by the rank of the matrix. Furthermore, the rank of a covariance matrix is bounded by the number of observations. Therefore, we have for centered $\bm{X}\in\mathbb{R}^{n\times p}$, $\bm{S} = \frac{1}{n-1}\bm{X}\tck\bm{X}$. For some eigenvector $\bm{v}_i$ of $\bm{X}\bm{X}\tck$,
 
 $$
-  \bm{X}\bm{X}\tck\bm{v}_i = \lambda_i\bm{v}_i
-\qaq      \bm{X}\tck\bm{X}\bm{X}\tck\bm{v}_i = \lambda \bm{X}\tck\bm{v}_i
+\bm{X}\bm{X}\tck\bm{v}_i = \lambda_i\bm{v}_i
+$$
+
+$$
+\bm{X}\tck\bm{X}\bm{X}\tck\bm{v}_i = \lambda \bm{X}\tck\bm{v}_i
 $$
 
 If $\bm{v}_i$ is an eigenvector of $\bm{X}\bm{X}\tck$, then $\bm{X}\tck\bm{v}_i$ is an eigenvector of $\bm{X}\tck\bm{X}$. We now only need to find the eigenvectors for $\bm{X}\bm{X}\tck\in\mathbb{R}^{n\times n}$ (a much smaller matrix) to get all the eigenvectors (with non-zero eigenvalues) of $\bm{S}$.
