@@ -16,7 +16,7 @@ Facial images of individuals from [Centro Universitário FEI](https://portal.fei
 
 Given a set of images, one common analytical task is to classify them into distinct populations based on their contents. In facial recognition, for example, one needs to first classify an image as containing a face, and then try to match the face against known individuals.
 
-In order to illustrate the range in effectiveness of PCA and LDA for such classification, I examined images from the FEI Face Database. The data consist of 200 (260x360 pixel) images of individuals, with 50 smiling men, 50 neutral men, 50 smiling women and 50 neutral women.
+In order to illustrate the range in effectiveness of PCA and LDA for such classification, I examined images from the FEI Face Database[^feifacedatabse]. The data consist of 200 (260x360 pixel) images of individuals, with 50 smiling men, 50 neutral men, 50 smiling women and 50 neutral women.
 
 ![Neutral (M)](/assets/images/17a.jpg)
 
@@ -26,7 +26,7 @@ The photographed individuals spanned multiple ethnicities and a wide range of ag
 
 In order to prepare the data for analysis, the images were transformed into multivariate observations by concatenating each column of pixels into one vector, and averaging the red, green, and blue channels of the pixels to create a single gray scale value in the interval $[0,1]$. Additionally, the overall average image was subtracted from each observation to center the data.
 
-The final design matrices $\bm{X}_{g} \in \mathbb{R}^{n\times p}$ (across each group $g$) are shown below.
+The final design matrices $\bm{X}_{g} \in \mathbb{R}^{n\times p}$ (across each group $g$) are shown below, with variable $(p)$ and observation $(n)$ counts.
 
 $$
   \begin{array}{lll}
@@ -76,9 +76,15 @@ One particularly nice property of PCA for image analysis is that the eigenvector
 
 Shown above, the components of the first eigenvector (from the facial image data) are mapped back to pixel positions and shown as a heatmap, where negative values are in blue and positive values in orange.
 
-Comparing this heatmap to the computed average images (shown below) for both genders, we can immediately see that the first PC captures differences in hair style and head shape between genders.
+
+Comparing this heatmap to the computed average images for both genders, we can immediately see that the first PC captures differences in hair style and head shape between genders.
+
+![Average of all "Female" classified images](/assets/images/avg_female.jpg)
 
 Juxtaposing the clean separation of genders by the first PC to the less clear separation of facial expression suggests that the subtlety / simplicity of the population differences has a strong effect on the efficiency of the resulting PC's.
+
+![Average of all "Male" classified images](/assets/images/avg_male.jpg)
+
 
 ### LDA - FEI Face Data
 
@@ -106,6 +112,7 @@ In addition to LDA analysis, QDA was performed (to relax the assumption of equal
 
 ## References
 
+[^feifacedatabse]: Centro Universitario da FEI, [FEI Face Database [Data file] (2012)](http://fei.edu.br/~cet/facedatabase.html)
 [^stothers2010complexity]: Stothers, Andrew James. ["On the complexity of matrix multiplication." (2010)](https://era.ed.ac.uk/handle/1842/4734).
 [^heseltine2003face]: Heseltine, Thomas, et al. ["Face recognition: A comparison of appearance-based approaches." Proc. VIIth Digital image computing: Techniques and applications. Vol. 1. 2003.](https://books.google.com/books?hl=en&lr=&id=oz-Sinxlj08C&oi=fnd&pg=PT91&dq=Face+recognition:+A+comparison+of+appearance-based+approaches&ots=y_rzICpXm_&sig=IpMyVHTGbzMet5JXRCpOAgomY6w#v=onepage&q=Face%20recognition%3A%20A%20comparison%20of%20appearance-based%20approaches&f=false)
 [^yeo2000new]: Yeo, In‐Kwon, and Richard A. Johnson. ["A new family of power transformations to improve normality or symmetry." Biometrika 87.4 (2000): 954-959.](https://academic.oup.com/biomet/article-abstract/87/4/954/232908)
