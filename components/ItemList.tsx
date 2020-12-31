@@ -20,6 +20,7 @@ function Item(props: ItemProps): JSX.Element {
       <a href={props.link} target="_blank">
         <ImageWrapper>
           <Image
+            priority
             width={600}
             height={267}
             alt={props.title}
