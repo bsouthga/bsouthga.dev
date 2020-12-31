@@ -1,6 +1,6 @@
 ---
 date: 08/05/2017
-subtitle: Using classic statistical methods to classify images.
+subtitle: Project for STAT6215 at GWU (part of my M.S. coursework) using classic statistical methods (Principal Component and Linear Discriminant Analysis) to classify images.
 title: Image Classification using PCA and LDA
 github: https://github.com/bsouthga/pca-image-classification
 ---
@@ -47,7 +47,7 @@ In order to classify the different images into the various distinct populations,
 
 ### Computational Considerations
 
-While PCA is clearly useful in combatting inherent issues with the image data, one practical problem remains. In order to compute the principal components, one must perform an eigendecomposition of the covariance matrix. As the computational complexity of eigendecomposition can only be greater than that of matrix multiplication, without any simplifications we can expect an asymptotic runtime [^stothers2010complexity] proportional to $\approx O(p^{2.37})$ operations ($\approx 605$ billion for these data).
+While PCA is clearly useful in combatting inherent issues with the image data, one practical problem remains. In order to compute the principal components, one must perform an eigendecomposition of the covariance matrix. As the computational complexity of eigendecomposition can only be greater than that of matrix multiplication, without any simplifications we can expect an asymptotic runtime[^stothers2010complexity] proportional to $\approx O(p^{2.37})$ operations ($\approx 605$ billion for these data).
 
 To get around this issue, we can use the fact that the number of non-zero eigenvalues (corresponding to useful principal components) is bounded by the rank of the matrix. Furthermore, the rank of a covariance matrix is bounded by the number of observations. Therefore, we have for centered $\bm{X}\in\mathbb{R}^{n\times p}$, $\bm{S} = \frac{1}{n-1}\bm{X}\tck\bm{X}$. For some eigenvector $\bm{v}_i$ of $\bm{X}\bm{X}\tck$,
 
@@ -66,9 +66,11 @@ After computing the principal components for the FEI dataset (combining all popu
 
 As shown above, over 95% of the variance of the FEI data is captured by fewer than 90 principal components. Furthermore, the first PC alone captures over 30% of the variance. Plotting the first and second components of the FEI data against one another, we can see that the genders are clearly divided.
 
-![First two PC's derived from facial images.](/assets/images/pc_pairs_gender_1_2.png)
+![First three principal components with gender indicated](/assets/images/pc_pairs_gender.png)
 
-As shown in Appendix 4.1 the pricipal components do not present a clean visual division between the types of facial expression.
+As shown below the pricipal components do not present a clean visual division between the types of facial expression.
+
+![First three principal components with facial expression indicated](/assets/images/pc_pairs_smile.png)
 
 One particularly nice property of PCA for image analysis is that the eigenvectors can be shown as images themselves (often referred to as "eigenfaces")[^heseltine2003face]. This allows for effective and intuitive illustration of image features that effectively divide the different populations.
 
@@ -96,19 +98,34 @@ To test the LDA assumption of multivariate normality, I produced chi-squared plo
 
 Examining the plot above, we can see a slight deviation from the $45^{\circ}$ line suggesting the principal components might not be mutivariate normal. As the values of the principal components include negative numbers, A Box-Cox transformation could not be applied. A Yeo-Johnson power transformation[^yeo2000new] was tested, though it did not improve appearance of normality in chi-square plots or the Royston normality test.
 
-However, the deviation is not intense and previous work [^i2006using] has shown that for image object recognition, LDA can achieve good performance even with possible non-normality. Therefore, I proceed with LDA as a classification tool in this analysis.
+However, the deviation is not intense and previous work[^i2006using] has shown that for image object recognition, LDA can achieve good performance even with possible non-normality. Therefore, I proceed with LDA as a classification tool in this analysis.
 
 Below, the accuracy rate for separate leave-one-out cross-validation (LOOCV) trials are displayed, with each LOOCV trial including the first $k$ principal components, $k=\crl{1,\dots,195}$.
 
 ![LOOCV accuracy for LDA classification of gender, including the first \$k\$ PC's](/assets/images/loo_lda_gender.png)
 
-As shown above, the model acheives high cross-validated accuracy with even just one principal component. This makes intuitive sense, given how well the data are linearly separated via the first principal component (Figure 4). Furthermore, accuracy rapidly decreases as the degrees of freedom fall with the inclusion of more principal components.
+As shown above, the model acheives high cross-validated accuracy with even just one principal component. This makes intuitive sense, given how well the data are linearly separated via the first principal component. Furthermore, accuracy rapidly decreases as the degrees of freedom fall with the inclusion of more principal components.
 
-Next, examining the prediction accuracy for classifying facial expression as smiling or neutral, we see that it takes more principal components to reach similar levels of accuracy. As shown in Appendix 4.1, facial expressions are not as cleanly divided as gender in the first few PC's.
+Next, examining the prediction accuracy for classifying facial expression as smiling or neutral, we see that it takes more principal components to reach similar levels of accuracy. As shown below, facial expressions are not as cleanly divided as gender in the first few PC's.
 
 Overall, even with potential violation of the assumption of normality, LDA performs well at classifying the FEI images.
 
 In addition to LDA analysis, QDA was performed (to relax the assumption of equal covariance matricies present in LDA). However, as shown below, it appears as if overall performance is roughly equal between the two models, perhaps due to the good linear separation of genders by the first PC.
+
+![LOOCV accuracy for QDA classification of gender, including the first \$k\$ PC's](/assets/images/loo_qda_gender.png)
+
+## Conclusion
+
+After analyzing two different sets of image data, it is clear that PCA and LDA can be effective, accurate tools for classification of images.
+
+The issues of high dimensionality and multicollinearity present in image data are effectively resolved through the use of principal components analysis. For images which have clear patterns separating populations, as was the case for hairstyle separating gender, principal components can be extremely efficient in identifying core object features. 
+
+With regard to Linear Descriminant Analysis, although the assumption of normality is not strictly satisfied, the empirical performance is strong.
+
+Further investigation of this topic might take several routes. To relax the requirement of normality (and potentially further increase performance), logistic regression and support vector machine models might be appropriate alternative classifiers.
+
+Additionally, further exploration of the affect of image quality and attributes on performance is merited. It is possible that LDA and PCA are sensitive to greater differences among images with respect to rotation, skew, and lighting.
+
 
 ## References
 
