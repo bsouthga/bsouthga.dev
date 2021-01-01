@@ -4,8 +4,11 @@ import { getPost, getPostFiles, PostMetadata } from "lib/posts";
 import Head from "next/head";
 import PostHeader from "components/PostHeader";
 import dynamic from "next/dynamic";
+import Loading from "components/Loading";
 
-const PostContent = dynamic(() => import("components/PostContent"));
+const PostContent = dynamic(() => import("components/PostContent"), {
+  loading: Loading,
+});
 
 type Query = {
   id: string;
