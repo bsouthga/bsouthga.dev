@@ -1,9 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Layout from "components/Layout";
 import { getPost, getPostFiles, PostMetadata } from "lib/posts";
-import PostContent from "components/PostContent";
 import Head from "next/head";
 import PostHeader from "components/PostHeader";
+import dynamic from "next/dynamic";
+
+const PostContent = dynamic(() => import("components/PostContent"));
 
 type Query = {
   id: string;
