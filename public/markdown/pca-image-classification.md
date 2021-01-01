@@ -3,6 +3,7 @@ date: 08/05/2017
 subtitle: Project for STAT6215 at GWU (part of my M.S. coursework) using classic statistical methods (Principal Component and Linear Discriminant Analysis) to classify images.
 title: Image Classification using PCA and LDA
 github: https://github.com/bsouthga/pca-image-classification
+metaImage: /assets/images/eig_1_heatmap.png
 ---
 
 

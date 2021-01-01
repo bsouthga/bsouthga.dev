@@ -5,6 +5,7 @@ import Head from "next/head";
 import PostHeader from "components/PostHeader";
 import dynamic from "next/dynamic";
 import Loading from "components/Loading";
+import PostOpenGraph from "components/PostOpenGraph";
 
 const PostContent = dynamic(() => import("components/PostContent"), {
   loading: Loading,
@@ -45,14 +46,15 @@ export default function Post(props: Props): JSX.Element {
   return (
     <Layout>
       <Head>
+        <title>{post.title} | Ben Southgate</title>
+        <link rel="icon" href="/favicon.ico" />
+        <PostOpenGraph post={post} />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
           integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
           crossOrigin="anonymous"
         />
-        <title>{post.title} | Ben Southgate</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostHeader post={post} />
       <PostContent post={post} />

@@ -1,7 +1,8 @@
 ---
 date: 12/03/2013
 subtitle: Investigating a few "Pythonic" ways to calculate gradients across given input colors
-title": Color gradients with Python
+title: Color gradients with Python
+metaImage: /assets/images/bezier_example.png
 ---
 
 Color is one of the most powerful tools for conveying information about data. Differences in color can inspire or imply emotions [(positive or negative)](http://www.twittermood.org/), give a sense of magnitude [(dark and dense, or light and sparse)](http://www.dwtkns.com/density/), or even hint at political persuasion [(redness" and "blueness" of states on a map)](http://elections.nytimes.com/2012/results/president).

@@ -2,6 +2,7 @@
 date: 09/01/2013
 subtitle: Random walk data generation and plotting
 title: 10 million steps with R
+metaImage: /assets/images/10millionSteps1.png
 ---
 
 I'm a fan of code that is computationally intense, yet very dense in terms of lines. A sort of David / Goliath kinda thing, where a few choice keystrokes can take hours to process. Additionally, when the computation can result in aesthetically pleasing output, like a 3D plot of a random walk using R's [`rgl`](http://cran.r-project.org/web/packages/rgl/index.html) package, it's hard to resist tapping away on the keyboard for a bit.
