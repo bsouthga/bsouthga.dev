@@ -7,9 +7,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import styles from "components/PostContent.module.css";
 import footnotes from "remark-footnotes";
 import { useEffect, useMemo, useRef } from "react";
-import usePrefersDarkMode from "lib/usePrefersDarkMode";
-import darkStyle from "react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus";
-import defaultStyle from "react-syntax-highlighter/dist/cjs/styles/prism/prism";
+import codeStyle from "react-syntax-highlighter/dist/cjs/styles/prism/material-dark";
 
 const SYNTAX_CUSTOM_STYLE = {
   lineHeight: "1",
@@ -31,7 +29,6 @@ type PostProps = {
 
 function Markdown(props: { content: string }): JSX.Element {
   const { content } = props;
-  const darkMode = usePrefersDarkMode();
   const footnoteRef = useRef([]);
 
   useEffect(() => {
@@ -55,7 +52,7 @@ function Markdown(props: { content: string }): JSX.Element {
       ),
       code: ({ language, value }) => (
         <SyntaxHighlighter
-          style={darkMode ? darkStyle : defaultStyle}
+          style={codeStyle}
           className={styles.code}
           customStyle={SYNTAX_CUSTOM_STYLE}
           codeTagProps={SYNTAX_CODE_TAG_PROPS}
@@ -94,7 +91,7 @@ function Markdown(props: { content: string }): JSX.Element {
         );
       },
     }),
-    [darkStyle, defaultStyle, darkMode]
+    []
   );
 
   return (

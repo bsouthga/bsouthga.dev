@@ -6,6 +6,12 @@
   border: 1px solid #000;
 }
 
+@media (prefers-color-scheme: dark) {
+  .code {
+    border-color: #ccc;
+  }
+}
+
 .footnote {
   display: flex;
   flex-direction: row;
