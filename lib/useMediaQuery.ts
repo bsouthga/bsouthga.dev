@@ -5,7 +5,7 @@ function getMediaQueryList(query: string): MediaQueryList | null {
     return null;
   }
 
-  return window.matchMedia("(prefers-color-scheme: dark)");
+  return window.matchMedia(query);
 }
 
 function matchesMedia(query: string): boolean {
