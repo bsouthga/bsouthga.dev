@@ -22,8 +22,4 @@ a {
     background-color: #222;
     color: #ccc;
   }
-
-  img {
-    filter: brightness(70%);
-  }
 }
