@@ -1,0 +1,20 @@
+.fillIcon {
+  fill: #000;
+  stroke: none;
+}
+
+.strokeIcon {
+  stroke: #000;
+  fill: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .fillIcon {
+    fill: #ccc;
+    stroke: none;
+  }
+  .strokeIcon {
+    stroke: #ccc;
+    fill: none;
+  }
+}

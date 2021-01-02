@@ -14,3 +14,15 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: #222;
+    color: #ccc;
+  }
+
+  img {
+    filter: brightness(70%);
+  }
+}

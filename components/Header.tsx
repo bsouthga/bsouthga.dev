@@ -1,24 +1,15 @@
 import Link from "next/link";
 import styles from "components/Header.module.css";
+import IconLink from "components/IconLink";
+import { IconType } from "components/Icon";
 
 type IconProps = {
   kind: string;
   href: string;
 };
 
-function Icon({ kind, href }: IconProps) {
-  return (
-    <Link href={href}>
-      <a>
-        <img
-          alt={kind}
-          title={kind}
-          className={styles.icon}
-          src={`/assets/ionicons/${kind}.svg`}
-        />
-      </a>
-    </Link>
-  );
+function HeaderIcon({ href, icon }: { href: string; icon: IconType }) {
+  return <IconLink size={20} className={styles.icon} icon={icon} href={href} />;
 }
 
 export default function Header(): JSX.Element {
@@ -30,17 +21,17 @@ export default function Header(): JSX.Element {
         </h1>
         <div className={styles.social}>
           <div>@bsouthga -</div>
-          <Icon kind="github" href="https://github.com/bsouthga" />
-          <Icon kind="twitter" href="https://twitter.com/bsouthga" />
-          <Icon
-            kind="linkedin"
+          <HeaderIcon icon="github" href="https://github.com/bsouthga" />
+          <HeaderIcon icon="twitter" href="https://twitter.com/bsouthga" />
+          <HeaderIcon
+            icon="linkedin"
             href="https://www.linkedin.com/in/bensouthgate/"
           />
-          <Icon
-            kind="stackoverflow"
+          <HeaderIcon
+            icon="stackoverflow"
             href="https://stackoverflow.com/users/1718488/ben-southgate"
           />
-          <Icon kind="posts" href="/posts" />
+          <HeaderIcon icon="posts" href="/posts" />
         </div>
       </div>
     </div>

@@ -5,6 +5,12 @@
   line-height: 0;
 }
 
+@media (prefers-color-scheme: dark) {
+  .image {
+    border-color: #ccc;
+  }
+}
+
 .container {
   display: flex;
   flex-grow: 0;

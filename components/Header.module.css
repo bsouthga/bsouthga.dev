@@ -8,6 +8,12 @@
   align-items: flex-end;
 }
 
+@media (prefers-color-scheme: dark) {
+  .root {
+    border-bottom-color: #ccc;
+  }
+}
+
 .name {
   font-weight: normal;
 }
@@ -23,7 +29,6 @@
 }
 
 .icon {
-  height: 20px;
   margin-left: 5px;
 }
 
