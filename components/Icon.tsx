@@ -57,6 +57,8 @@ const POST_LINE_STYLE = {
   strokeWidth: "32px",
 };
 
+const POST_IMAGE_PATH = { fill: "currentcolor", stroke: "none" };
+
 export function Posts() {
   return (
     <>
@@ -73,7 +75,10 @@ export function Posts() {
       <line x1="112" y1="256" x2="304" y2="256" style={POST_LINE_STYLE} />
       <line x1="112" y1="320" x2="304" y2="320" style={POST_LINE_STYLE} />
       <line x1="112" y1="384" x2="304" y2="384" style={POST_LINE_STYLE} />
-      <path d="M176,208H112a16,16,0,0,1-16-16V128a16,16,0,0,1,16-16h64a16,16,0,0,1,16,16v64A16,16,0,0,1,176,208Z" />
+      <path
+        style={POST_IMAGE_PATH}
+        d="M176,208H112a16,16,0,0,1-16-16V128a16,16,0,0,1,16-16h64a16,16,0,0,1,16,16v64A16,16,0,0,1,176,208Z"
+      />
     </>
   );
 }

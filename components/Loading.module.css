@@ -19,16 +19,9 @@
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #000;
-  border-color: #000 transparent #000 transparent;
+  border: 6px solid currentColor;
+  border-color: currentColor transparent currentColor transparent;
   animation: loading 1.2s linear infinite;
-}
-
-@media (prefers-color-scheme: dark) {
-  .loading:after {
-    border: 6px solid #ccc;
-    border-color: #ccc transparent #ccc transparent;
-  }
 }
 
 @keyframes loading {

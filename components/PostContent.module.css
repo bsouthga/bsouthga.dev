@@ -3,13 +3,7 @@
 }
 
 .code {
-  border: 1px solid #000;
-}
-
-@media (prefers-color-scheme: dark) {
-  .code {
-    border-color: #ccc;
-  }
+  border: 1px solid currentColor;
 }
 
 .footnote {

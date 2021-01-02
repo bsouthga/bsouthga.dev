@@ -1,14 +1,8 @@
 .image {
   display: block;
   flex-grow: 0;
-  border: 1px solid #000;
+  border: 1px solid currentColor;
   line-height: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  .image {
-    border-color: #ccc;
-  }
 }
 
 .container {

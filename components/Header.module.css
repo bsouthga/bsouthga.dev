@@ -2,16 +2,10 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid currentColor;
   margin-bottom: 20px;
   padding-bottom: 10px;
   align-items: flex-end;
-}
-
-@media (prefers-color-scheme: dark) {
-  .root {
-    border-bottom-color: #ccc;
-  }
 }
 
 .name {
