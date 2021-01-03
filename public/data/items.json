@@ -3,14 +3,14 @@
     "title": "Detection & Alerting at FB",
     "context": "Systems @Scale 2019",
     "description": "Talk I gave at Systems @Scale 2019 in Tel Aviv on how Facebook approaches monitoring significant metric movements.",
-    "image": "atscale.jpg",
+    "image": "atscale-index.jpg",
     "link": "https://atscaleconference.com/videos/systems-scale-2019-detection-alerting-at-fb-detecting-significant-metric-movements-scale/"
   },
   {
     "title": "Image Classification with PCA and LDA",
     "link": "/posts/pca-image-classification",
     "github": "https://github.com/bsouthga/pca-image-classification",
-    "image": "eig_1_heatmap.png",
+    "image": "eig_1_heatmap-index.png",
     "context": "GWU (2017)",
     "description": "Project for STAT6215 at GWU (part of my M.S. coursework) using classic statistical methods (Principal Component and Linear Discriminant Analysis) to classify images."
   },
@@ -18,7 +18,7 @@
     "title": "Innerself Hacker News",
     "context": "Fun/Tinkering (2017)",
     "description": "4KB hacker news clone using the tiny `innerself` js library.",
-    "image": "innerself.png",
+    "image": "innerself-index.png",
     "github": "https://github.com/bsouthga/innerself-hn",
     "link": "https://innerself-hn.com"
   },
@@ -26,7 +26,7 @@
     "title": "Pythagoras Fractal in Elm",
     "context": "Fun/Tinkering (2016)",
     "description": "Playing around with elm-lang and fractals.",
-    "image": "pythagoras-fractal.png",
+    "image": "pythagoras-fractal-index.png",
     "link": "https://bsouthga.github.io/pythagoras-fractal/",
     "github": "https://github.com/bsouthga/pythagoras-fractal"
   },
@@ -59,14 +59,14 @@
     "context": "Urban Institute (2014)",
     "description": "Some DC schools have been in close range of as many as 16 gunfire incidents in the course of a school year, according to Urban Institute analysis.",
     "link": "https://apps.urban.org/features/everydayviolence/",
-    "image": "everydayviolence.png"
+    "image": "everydayviolence-index.png"
   },
   {
     "title": "Interactive Pension Policy Simulator",
     "context": "Urban Institute (2014)",
     "description": "This javascript tool enables experimentation with pension policy parameters, showing changes to individual outcomes.",
     "link": "https://apps.urban.org/features/build-your-own-pension/",
-    "image": "build-your-own-pension.png",
+    "image": "build-your-own-pension-index.png",
     "github": "https://github.com/UrbanInstitute/build-your-own-pension"
   }
 ]

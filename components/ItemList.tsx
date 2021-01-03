@@ -22,10 +22,9 @@ function Item(props: ItemProps): JSX.Element {
           <Image
             priority
             width={600}
-            height={267}
+            height={300}
             alt={props.title}
             src={`/assets/images/${props.image}`}
-            objectFit="cover"
           />
         </ImageWrapper>
       </a>
