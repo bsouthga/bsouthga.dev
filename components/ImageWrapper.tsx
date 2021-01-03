@@ -10,7 +10,7 @@ export default function ImageWrapper(props: ImageWrapperProps): JSX.Element {
   return (
     <div className={styles.container}>
       <span className={styles.image}>{children}</span>
-      <span className={styles.caption}>{caption}</span>
+      {caption != null && <span className={styles.caption}>{caption}</span>}
     </div>
   );
 }
