@@ -6,11 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "jest": "jest",
     "jest-watch": "jest --watch",
     "coverage": "jest --collect-coverage",
-    "check": "tsc --noEmit && eslint && jest",
-    "test": "npm run check"
+    "test": "tsc && eslint && jest"
   },
   "dependencies": {
     "katex": "0.12.0",

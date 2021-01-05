@@ -4,7 +4,10 @@
   "moduleFileExtensions": ["js", "ts", "tsx", "json"],
   "testPathIgnorePatterns": ["/node_modules/", "/.next/"],
   "transform": {
-    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    "^.+\\.(js|jsx|ts|tsx)$": [
+      "babel-jest",
+      { "configFile": "./jest/.babelrc" }
+    ]
   },
   "collectCoverageFrom": [
     "./{lib,components,pages}/**/*.{js,jsx,ts,tsx}",
