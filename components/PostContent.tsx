@@ -4,10 +4,26 @@ import Katex from "components/Katex";
 import math from "remark-math";
 import ImageWrapper from "components/ImageWrapper";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import styles from "components/PostContent.module.css";
 import footnotes from "remark-footnotes";
 import { useEffect, useMemo, useRef } from "react";
 import codeStyle from "react-syntax-highlighter/dist/cjs/styles/prism/material-dark";
+import style9 from "style9";
+
+const styles = style9.create({
+  paragraph: {
+    marginBottom: "1em",
+  },
+  code: {
+    borderColor: "currentColor",
+    borderWidth: 1,
+    borderStyle: "solid",
+  },
+  footnote: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
+  },
+});
 
 const SYNTAX_CUSTOM_STYLE = {
   lineHeight: "1",
@@ -48,12 +64,12 @@ function Markdown(props: { content: string }): JSX.Element {
       ),
       // override paragraphs to allow div nesting
       paragraph: ({ children }) => (
-        <div className={styles.paragraph}>{children}</div>
+        <div className={styles("paragraph")}>{children}</div>
       ),
       code: ({ language, value }) => (
         <SyntaxHighlighter
           style={codeStyle}
-          className={styles.code}
+          className={styles("code")}
           customStyle={SYNTAX_CUSTOM_STYLE}
           codeTagProps={SYNTAX_CODE_TAG_PROPS}
           language={language}
@@ -65,7 +81,7 @@ function Markdown(props: { content: string }): JSX.Element {
         const index = footnotes.indexOf(identifier) + 1;
 
         return (
-          <div id={identifier} className={styles.footnote}>
+          <div id={identifier} className={styles("footnote")}>
             <a href={`#${identifier}`}>[{index}]</a>
             :&nbsp;
             {children}

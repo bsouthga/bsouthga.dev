@@ -1,6 +1,13 @@
-import styles from "components/IconLink.module.css";
 import Link from "next/link";
 import { Icon, IconType } from "components/Icon";
+import style9 from "style9";
+
+const styles = style9.create({
+  link: {
+    lineHeight: "0px",
+    verticalAlign: "middle",
+  },
+});
 
 type Props = {
   href: string;
@@ -19,7 +26,7 @@ export default function IconLink({
 }: Props) {
   return (
     <Link href={href}>
-      <a className={styles.link}>
+      <a className={styles("link")}>
         <Icon size={size} type={icon} className={className} alt={alt} />
       </a>
     </Link>

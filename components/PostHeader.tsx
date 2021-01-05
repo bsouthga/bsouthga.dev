@@ -1,8 +1,17 @@
 import { PostMetadata } from "lib/posts";
 import IconLink from "components/IconLink";
 import formatDate from "lib/formatDate";
-import styles from "components/PostHeader.module.css";
 import Link from "next/link";
+import style9 from "style9";
+
+const styles = style9.create({
+  metadata: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: "1em",
+  },
+});
 
 function getMarkdownLink(id: string) {
   return `https://github.com/bsouthga/bsouthga.dev/tree/master/public/markdown/${id}.md`;
@@ -17,7 +26,7 @@ export default function PostHeader(props: Props) {
 
   return (
     <>
-      <div className={styles.metadata}>
+      <div className={styles("metadata")}>
         <Link href="/posts">Posts</Link>&nbsp;-&nbsp;
         {formatDate(post.date)} -&nbsp;
         <IconLink

@@ -1,6 +1,17 @@
-import styles from "components/Icon.module.css";
 import classNames from "lib/classNames";
 import { useMemo } from "react";
+import style9 from "style9";
+
+const styles = style9.create({
+  fillIcon: {
+    fill: "currentColor",
+    stroke: "none",
+  },
+  strokeIcon: {
+    stroke: "currentColor",
+    fill: "none",
+  },
+});
 
 export type IconType =
   | "github"
@@ -127,7 +138,7 @@ export function Icon(props: Props) {
       height={size}
       viewBox="0 0 512 512"
       className={classNames(
-        fillIcon ? styles.fillIcon : styles.strokeIcon,
+        fillIcon ? styles("fillIcon") : styles("strokeIcon"),
         className
       )}
     >
