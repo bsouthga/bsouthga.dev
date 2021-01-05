@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check": "tsc --noEmit && eslint"
+    "check": "tsc --noEmit && eslint",
+    "test": "npm run check"
   },
   "dependencies": {
     "katex": "0.12.0",

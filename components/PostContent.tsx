@@ -45,7 +45,7 @@ type PostProps = {
 
 function Markdown(props: { content: string }): JSX.Element {
   const { content } = props;
-  const footnoteRef = useRef([]);
+  const footnoteRef = useRef<string[]>([]);
 
   useEffect(() => {
     footnoteRef.current = [];
@@ -57,16 +57,16 @@ function Markdown(props: { content: string }): JSX.Element {
       math: ({ value }: { value: string }) => (
         <Katex code={value} displayMode />
       ),
-      image: ({ alt, src }) => (
+      image: ({ alt = "", src }: { alt?: string; src: string }) => (
         <ImageWrapper caption={<Markdown content={alt} />}>
           <img alt={alt} width="100%" height="auto" src={src} />
         </ImageWrapper>
       ),
       // override paragraphs to allow div nesting
-      paragraph: ({ children }) => (
+      paragraph: ({ children }: { children: JSX.Element }) => (
         <div className={styles("paragraph")}>{children}</div>
       ),
-      code: ({ language, value }) => (
+      code: ({ language, value }: { language: string; value: string }) => (
         <SyntaxHighlighter
           style={codeStyle}
           className={styles("code")}
@@ -76,7 +76,13 @@ function Markdown(props: { content: string }): JSX.Element {
           children={value}
         />
       ),
-      footnoteDefinition: ({ children, identifier }) => {
+      footnoteDefinition: ({
+        children,
+        identifier,
+      }: {
+        children: JSX.Element;
+        identifier: string;
+      }) => {
         const footnotes = footnoteRef.current;
         const index = footnotes.indexOf(identifier) + 1;
 
@@ -88,7 +94,13 @@ function Markdown(props: { content: string }): JSX.Element {
           </div>
         );
       },
-      footnoteReference: ({ label, identifier }) => {
+      footnoteReference: ({
+        label,
+        identifier,
+      }: {
+        label: string;
+        identifier: string;
+      }) => {
         const footnotes = footnoteRef.current;
         const index = footnotes.indexOf(identifier);
 

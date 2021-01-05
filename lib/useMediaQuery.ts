@@ -17,6 +17,10 @@ export default function useMediaQuery(query: string): boolean {
 
   useEffect(() => {
     const list = getMediaQueryList(query);
+    if (list == null) {
+      return;
+    }
+
     const handler = () => setValue(matchesMedia(query));
     list.addEventListener("change", handler);
     return () => list.removeEventListener("change", handler);

@@ -6,6 +6,8 @@ import PostHeader from "components/PostHeader";
 import dynamic from "next/dynamic";
 import Loading from "components/Loading";
 import PostOpenGraph from "components/PostOpenGraph";
+import { Maybe } from "lib/types";
+import NotFound from "components/NotFound";
 
 const PostContent = dynamic(() => import("components/PostContent"), {
   loading: Loading,
@@ -16,7 +18,7 @@ type Query = {
 };
 
 type Props = {
-  post: PostMetadata;
+  post: Maybe<PostMetadata>;
 };
 
 export const getStaticPaths: GetStaticPaths<Query> = async (context) => {
@@ -32,17 +34,20 @@ export const getStaticPaths: GetStaticPaths<Query> = async (context) => {
 };
 
 export const getStaticProps: GetStaticProps<Props, Query> = async (context) => {
-  const id = context.params.id;
-  const post = await getPost(id);
+  const id = context?.params?.id;
   return {
     props: {
-      post,
+      post: id != null ? await getPost(id) : null,
     },
   };
 };
 
 export default function Post(props: Props): JSX.Element {
   const { post } = props;
+  if (post == null) {
+    return <NotFound />;
+  }
+
   return (
     <Layout>
       <Head>
