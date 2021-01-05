@@ -1,5 +1,7 @@
+import compact from "lib/compact";
+
 export default function classNames(
   ...names: (string | null | undefined)[]
 ): string {
-  return names.filter(Boolean).join(" ");
+  return compact(names).join(" ");
 }
