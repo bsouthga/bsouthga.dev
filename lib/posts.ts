@@ -5,7 +5,11 @@ import sortBy from "lib/sortBy";
 import { Maybe } from "lib/types";
 import compact from "lib/compact";
 
-const { serverRuntimeConfig } = getConfig();
+const { serverRuntimeConfig } = getConfig() ?? {
+  serverRuntimeConfig: {
+    PROJECT_ROOT: process.cwd(),
+  },
+};
 const POST_DIR = path.join(
   serverRuntimeConfig.PROJECT_ROOT,
   "./public/markdown/"

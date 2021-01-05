@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`posts snapshot metadata: color-gradients-with-python 1`] = `
+Object {
+  "date": "12/03/2013",
+  "filename": "color-gradients-with-python",
+  "github": null,
+  "metaImage": "/assets/images/bezier_example.png",
+  "subtitle": "Investigating a few \\"Pythonic\\" ways to calculate gradients across given input colors",
+  "title": "Color gradients with Python",
+}
+`;
+
+exports[`posts snapshot metadata: pca-image-classification 1`] = `
+Object {
+  "date": "08/05/2017",
+  "filename": "pca-image-classification",
+  "github": "https://github.com/bsouthga/pca-image-classification",
+  "metaImage": "/assets/images/eig_1_heatmap.png",
+  "subtitle": "Project for STAT6215 at GWU (part of my M.S. coursework) using classic statistical methods (Principal Component and Linear Discriminant Analysis) to classify images.",
+  "title": "Image Classification using PCA and LDA",
+}
+`;
