@@ -32,9 +32,6 @@ export async function getPostFiles(): Promise<string[]> {
 
 export async function getPost(id: string): Promise<Maybe<PostMetadata>> {
   const file = (await fs.promises.readFile(`${POST_DIR}/${id}.md`)).toString();
-  if (file === "") {
-    return null;
-  }
   return parsePostMetadata(id, file);
 }
 
