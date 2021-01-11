@@ -1,1 +1,0 @@
-We need to keep the babel config in this folder so next doesn't pick it up
