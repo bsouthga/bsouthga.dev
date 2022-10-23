@@ -55,7 +55,13 @@ function Markdown(props: { content: string }): JSX.Element {
     () => ({
       img: ({ alt, src }: JSX.IntrinsicElements["img"]) => (
         <ImageWrapper height={400} caption={alt}>
-          <Image alt={alt} layout="fill" src={src ?? ""} objectFit="contain" />
+          <Image
+            priority
+            alt={alt}
+            layout="fill"
+            src={src ?? ""}
+            objectFit="contain"
+          />
         </ImageWrapper>
       ),
       paragraph: ({ children }: { children: JSX.Element }) => (
