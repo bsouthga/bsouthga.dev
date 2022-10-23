@@ -9,8 +9,11 @@ import { useEffect, useMemo, useRef } from "react";
 import { style } from "typestyle";
 import rehypeKatex from "rehype-katex";
 import { PluggableList } from "react-markdown/lib/react-markdown";
+import light from "react-syntax-highlighter/dist/cjs/styles/prism/one-light";
+import dark from "react-syntax-highlighter/dist/cjs/styles/prism/one-dark";
 
 import "katex/dist/katex.min.css"; // `rehype-katex` does not import the CSS for you
+import usePrefersDarkMode from "lib/usePrefersDarkMode";
 
 type ReactMarkdownProps = React.ComponentProps<typeof ReactMarkdown>;
 type ComponentProps = ReactMarkdownProps["components"];
@@ -67,10 +70,24 @@ function Markdown(props: { content: string }): JSX.Element {
       paragraph: ({ children }: { children: JSX.Element }) => (
         <div className={paragraphStyle}>{children}</div>
       ),
-      code({ node, inline, className, children, style: _, ...props }) {
+      code: function Code({
+        node,
+        inline,
+        className,
+        children,
+        style: _,
+        ...props
+      }) {
+        const prefersDarkMode = usePrefersDarkMode();
         const match = /language-(\w+)/.exec(className || "");
+
         return !inline && match ? (
-          <SyntaxHighlighter language={match[1]} PreTag="div" {...props}>
+          <SyntaxHighlighter
+            language={match[1]}
+            style={prefersDarkMode ? dark : light}
+            PreTag="div"
+            {...props}
+          >
             {String(children).replace(/\n$/, "")}
           </SyntaxHighlighter>
         ) : (

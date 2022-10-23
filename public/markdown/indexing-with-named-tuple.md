@@ -127,7 +127,7 @@ class MetaDict(object):
 
 Finally, here is an example usage of the above class (thrown into a file `metadict.py`), with the exact indexing and sub-setting we were hoping for!
 
-```
+```shell
 >>> from metadict import MetaDict
 >>> T = MetaDict(["a","b","c"])
 >>> T[{"a":1,"b":True, "c":"string"}] = 4
