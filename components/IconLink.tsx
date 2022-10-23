@@ -1,12 +1,10 @@
 import Link from "next/link";
 import { Icon, IconType } from "components/Icon";
-import style9 from "style9";
+import { style } from "typestyle";
 
-const styles = style9.create({
-  link: {
-    lineHeight: "0px",
-    verticalAlign: "middle",
-  },
+const linkStyle = style({
+  lineHeight: "0px",
+  verticalAlign: "middle",
 });
 
 type Props = {
@@ -26,7 +24,7 @@ export default function IconLink({
 }: Props) {
   return (
     <Link href={href}>
-      <a className={styles("link")}>
+      <a className={linkStyle}>
         <Icon size={size} type={icon} className={className} alt={alt} />
       </a>
     </Link>

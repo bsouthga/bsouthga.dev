@@ -98,7 +98,7 @@ In order to classify the FEI face images as containing males or females, as well
 
 To test the LDA assumption of multivariate normality, I produced chi-squared plots of the principal components.
 
-![\$\\mathcal{X}^2\$ Plot of \$PC_1-PC_{20}\$ from FEI Data](/assets/images/chi-squared-face.png)
+![First 20 principal components from FEI Data](/assets/images/chi-squared-face.png)
 
 Examining the plot above, we can see a slight deviation from the $45^{\circ}$ line suggesting the principal components might not be mutivariate normal. As the values of the principal components include negative numbers, A Box-Cox transformation could not be applied. A Yeo-Johnson power transformation[^yeo2000new] was tested, though it did not improve appearance of normality in chi-square plots or the Royston normality test.
 
@@ -106,7 +106,7 @@ However, the deviation is not intense and previous work[^i2006using] has shown t
 
 Below, the accuracy rate for separate leave-one-out cross-validation (LOOCV) trials are displayed, with each LOOCV trial including the first $k$ principal components, $k=\crl{1,\dots,195}$.
 
-![LOOCV accuracy for LDA classification of gender, including the first \$k\$ PC's](/assets/images/loo_lda_gender.png)
+![LOOCV accuracy for LDA classification of gender](/assets/images/loo_lda_gender.png)
 
 As shown above, the model acheives high cross-validated accuracy with even just one principal component. This makes intuitive sense, given how well the data are linearly separated via the first principal component. Furthermore, accuracy rapidly decreases as the degrees of freedom fall with the inclusion of more principal components.
 
@@ -116,7 +116,7 @@ Overall, even with potential violation of the assumption of normality, LDA perfo
 
 In addition to LDA analysis, QDA was performed (to relax the assumption of equal covariance matricies present in LDA). However, as shown below, it appears as if overall performance is roughly equal between the two models, perhaps due to the good linear separation of genders by the first PC.
 
-![LOOCV accuracy for QDA classification of gender, including the first \$k\$ PC's](/assets/images/loo_qda_gender.png)
+![LOOCV accuracy for QDA classification of gender](/assets/images/loo_qda_gender.png)
 
 ## Conclusion
 
