@@ -1,42 +1,41 @@
 import Link from "next/link";
 import IconLink from "components/IconLink";
 import { IconType } from "components/Icon";
-import style9 from "style9";
+import { style } from "typestyle";
 
-const styles = style9.create({
-  root: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-    borderBottomColor: "currentColor",
-    borderBottomStyle: "solid",
-    borderBottomWidth: 1,
-    marginBottom: "20px",
-    paddingBottom: "10px",
-    alignItems: "flex-end",
-  },
-  name: {
-    fontWeight: "normal",
-  },
-  headerLink: {
-    // @ts-ignore
-    textDecoration: "none",
+const root = style({
+  width: "100%",
+  display: "flex",
+  flexDirection: "row",
+  borderBottomColor: "currentColor",
+  borderBottomStyle: "solid",
+  borderBottomWidth: 1,
+  marginBottom: "20px",
+  paddingBottom: "10px",
+  alignItems: "flex-end",
+});
+
+const name = style({
+  fontWeight: "normal",
+});
+
+const headerLink = style({
+  textDecoration: "none",
+  $nest: {
     ":hover": {
-      // @ts-ignore
       textDecoration: "underline",
     },
   },
-  social: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  icon: {
-    marginLeft: "5px",
-  },
-  main: {
-    flexGrow: 1,
-  },
+});
+
+const social = style({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+});
+
+const main = style({
+  flexGrow: 1,
 });
 
 type IconProps = {
@@ -45,21 +44,19 @@ type IconProps = {
 };
 
 function HeaderIcon({ href, icon }: IconProps) {
-  return (
-    <IconLink size={20} className={styles("icon")} icon={icon} href={href} />
-  );
+  return <IconLink size={20} className={icon} icon={icon} href={href} />;
 }
 
 export default function Header(): JSX.Element {
   return (
-    <div className={styles("root")}>
-      <div className={styles("main")}>
-        <h1 className={styles("name")}>
+    <div className={root}>
+      <div className={main}>
+        <h1 className={name}>
           <Link href="/">
-            <a className={styles("headerLink")}>Ben Southgate</a>
+            <a className={headerLink}>Ben Southgate</a>
           </Link>
         </h1>
-        <div className={styles("social")}>
+        <div className={social}>
           <div>@bsouthga -</div>
           <HeaderIcon icon="github" href="https://github.com/bsouthga" />
           <HeaderIcon icon="twitter" href="https://twitter.com/bsouthga" />

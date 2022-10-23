@@ -1,38 +1,38 @@
-import style9 from "style9";
+import { style } from "typestyle";
 
-const styles = style9.create({
-  image: {
-    display: "block",
-    flexGrow: 0,
-    borderWidth: 1,
-    borderStyle: "solid",
-    borderColor: "currentColor",
-    lineHeight: 0,
-  },
-  container: {
-    display: "flex",
-    flexGrow: 0,
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  caption: {
-    paddingTop: "10px",
-    textAlign: "center",
-    width: "80%",
-  },
+const imageContainerStyle = style({
+  display: "block",
+  flexGrow: 1,
+  borderWidth: 1,
+  lineHeight: 0,
+  width: "100%",
+  position: "relative",
+});
+
+const containerStyle = style({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+});
+
+const captionStyle = style({
+  paddingTop: "10px",
+  textAlign: "center",
+  width: "80%",
 });
 
 type ImageWrapperProps = {
   children: JSX.Element;
-  caption?: JSX.Element;
+  height?: number;
+  caption?: string | null;
 };
 
 export default function ImageWrapper(props: ImageWrapperProps): JSX.Element {
-  const { children, caption } = props;
+  const { children, caption, height } = props;
   return (
-    <div className={styles("container")}>
-      <span className={styles("image")}>{children}</span>
-      {caption != null && <span className={styles("caption")}>{caption}</span>}
-    </div>
+    <span className={containerStyle} style={height == null ? {} : { height }}>
+      <span className={imageContainerStyle}>{children}</span>
+      <span className={captionStyle}>{caption}</span>
+    </span>
   );
 }

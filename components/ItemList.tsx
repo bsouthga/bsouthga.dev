@@ -3,43 +3,45 @@ import items from "public/data/items.json";
 import ImageWrapper from "components/ImageWrapper";
 import IconLink from "components/IconLink";
 import Link from "next/link";
-import style9 from "style9";
+import { style } from "typestyle";
 
-const styles = style9.create({
-  itemGrid: {
-    width: "100%",
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gridRowGap: "20px",
-    gridColumnGap: "20px",
-    // @ts-ignore
+const itemGridStyle = style({
+  width: "100%",
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gridRowGap: "20px",
+  gridColumnGap: "20px",
+  $nest: {
     "@media (max-width: 800px)": {
       gridTemplateColumns: "1fr",
       gridRowGap: "0",
     },
   },
-  description: {
-    // @ts-ignore
-    fontSize: "0.75em",
-    // @ts-ignore
+});
+
+const descriptionStyle = style({
+  fontSize: "0.75em",
+  $nest: {
     "@media (max-width: 800px)": {
       paddingBottom: "30px",
       fontSize: "1em",
     },
   },
-  context: {
-    fontStyle: "italic",
-  },
-  title: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    paddingTop: "10px",
-  },
-  titleHeader: {
-    margin: "0px",
-    marginRight: "6px",
-  },
+});
+const contextStyle = style({
+  fontStyle: "italic",
+});
+
+const titleStyle = style({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  paddingTop: "10px",
+});
+
+const titleHeaderStyle = style({
+  margin: "0px",
+  marginRight: "6px",
 });
 
 type ItemProps = {
@@ -54,7 +56,7 @@ type ItemProps = {
 function Item(props: ItemProps): JSX.Element {
   return (
     <>
-      <a href={props.link} target="_blank">
+      <a href={props.link} target="_blank" rel="noreferrer">
         <ImageWrapper>
           <Image
             priority
@@ -65,9 +67,9 @@ function Item(props: ItemProps): JSX.Element {
           />
         </ImageWrapper>
       </a>
-      <div className={styles("description")}>
-        <div className={styles("title")}>
-          <h3 className={styles("titleHeader")}>
+      <div className={descriptionStyle}>
+        <div className={titleStyle}>
+          <h3 className={titleHeaderStyle}>
             <Link href={props.link}>
               <a>{props.title}</a>
             </Link>
@@ -76,7 +78,7 @@ function Item(props: ItemProps): JSX.Element {
             <IconLink icon="github" href={props.github} />
           )}
         </div>
-        <p className={styles("context")}>{props.context}</p>
+        <p className={contextStyle}>{props.context}</p>
         <p>{props.description}</p>
       </div>
     </>
@@ -85,7 +87,7 @@ function Item(props: ItemProps): JSX.Element {
 
 export default function ItemList(): JSX.Element {
   return (
-    <div className={styles("itemGrid")}>
+    <div className={itemGridStyle}>
       {items.map((item) => (
         <Item {...item} key={item.title} />
       ))}

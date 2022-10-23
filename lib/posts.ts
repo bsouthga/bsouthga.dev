@@ -5,7 +5,7 @@ import sortBy from "lib/sortBy";
 import { Maybe } from "lib/types";
 import compact from "lib/compact";
 
-const { serverRuntimeConfig } = getConfig() ?? {
+const { serverRuntimeConfig } = {
   serverRuntimeConfig: {
     PROJECT_ROOT: process.cwd(),
   },

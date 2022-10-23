@@ -2,15 +2,13 @@ import { PostMetadata } from "lib/posts";
 import IconLink from "components/IconLink";
 import formatDate from "lib/formatDate";
 import Link from "next/link";
-import style9 from "style9";
+import { style } from "typestyle";
 
-const styles = style9.create({
-  metadata: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: "1em",
-  },
+const metadata = style({
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  marginBottom: "1em",
 });
 
 function getMarkdownLink(id: string) {
@@ -26,7 +24,7 @@ export default function PostHeader(props: Props) {
 
   return (
     <>
-      <div className={styles("metadata")}>
+      <div className={metadata}>
         <Link href="/posts">Posts</Link>&nbsp;-&nbsp;
         {formatDate(post.date)} -&nbsp;
         <IconLink

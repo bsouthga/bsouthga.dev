@@ -1,15 +1,13 @@
-import style9 from "style9";
+import { style } from "typestyle";
 
-const styles = style9.create({
-  root: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "200px",
-  },
+const rootStyle = style({
+  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "200px",
 });
 
 export default function NotFound() {
-  return <div className={styles("root")}>whoops, this doesn't exist...</div>;
+  return <div className={rootStyle}>{"whoops, this doesn't exist..."}</div>;
 }

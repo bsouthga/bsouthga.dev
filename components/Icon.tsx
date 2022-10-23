@@ -1,16 +1,15 @@
 import classNames from "lib/classNames";
 import { useMemo } from "react";
-import style9 from "style9";
+import { style } from "typestyle";
 
-const styles = style9.create({
-  fillIcon: {
-    fill: "currentColor",
-    stroke: "none",
-  },
-  strokeIcon: {
-    stroke: "currentColor",
-    fill: "none",
-  },
+const fillIcon = style({
+  fill: "currentColor",
+  stroke: "none",
+});
+
+const strokeIcon = style({
+  stroke: "currentColor",
+  fill: "none",
 });
 
 export type IconType =
@@ -122,7 +121,7 @@ export function Icon(props: Props) {
     }
   }, [type]);
 
-  const fillIcon = useMemo(() => {
+  const shouldFillIcon = useMemo(() => {
     switch (type) {
       case "posts":
         return false;
@@ -137,10 +136,7 @@ export function Icon(props: Props) {
       width={size}
       height={size}
       viewBox="0 0 512 512"
-      className={classNames(
-        fillIcon ? styles("fillIcon") : styles("strokeIcon"),
-        className
-      )}
+      className={classNames(shouldFillIcon ? fillIcon : strokeIcon, className)}
     >
       {alt != null && <title>{alt}</title>}
       {content}

@@ -1,10 +1,7 @@
-const withTM = require("next-transpile-modules")(["style9"]);
-const withStyle9 = require("style9/next");
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+};
 
-module.exports = withStyle9()(
-  withTM({
-    serverRuntimeConfig: {
-      PROJECT_ROOT: __dirname,
-    },
-  })
-);
+module.exports = nextConfig;

@@ -1,24 +1,24 @@
-import style9 from "style9";
+import { style, keyframes } from "typestyle";
 
-const styles = style9.create({
-  container: {
-    width: "100%",
-    height: "200px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  loading: {
-    display: "inline-block",
-    width: "80px",
-    height: "80px",
-    "::after": {
+const containerStyle = style({
+  width: "100%",
+  height: "200px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+});
+
+const loadingStyle = style({
+  display: "inline-block",
+  width: "80px",
+  height: "80px",
+  $nest: {
+    ":after": {
       content: '" "',
       display: "block",
       width: 64,
       height: 64,
       margin: 8,
-      // @ts-ignore -- borderRadius is missing from typedef
       borderRadius: "50%",
       borderStyle: "solid",
       borderWidth: 6,
@@ -29,7 +29,7 @@ const styles = style9.create({
       animationDuration: "1.2s",
       animationTimingFunction: "linear",
       animationIterationCount: "infinite",
-      animationName: style9.keyframes({
+      animationName: keyframes({
         "0%": {
           transform: "rotate(0deg)",
         },
@@ -43,8 +43,8 @@ const styles = style9.create({
 
 export default function Loading() {
   return (
-    <div className={styles("container")}>
-      <div className={styles("loading")} />
+    <div className={containerStyle}>
+      <div className={loadingStyle} />
     </div>
   );
 }
