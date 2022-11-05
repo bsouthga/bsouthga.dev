@@ -1,3 +1,5 @@
+"use client";
+
 import ReactMarkdown from "react-markdown";
 import { PostMetadata } from "lib/posts";
 import math from "remark-math";
