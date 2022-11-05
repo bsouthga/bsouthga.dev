@@ -64,15 +64,17 @@ function Item(props: ItemProps): JSX.Element {
             height={300}
             alt={props.title}
             src={`/assets/images/${props.image}`}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
           />
         </ImageWrapper>
       </a>
       <div className={descriptionStyle}>
         <div className={titleStyle}>
           <h3 className={titleHeaderStyle}>
-            <Link href={props.link}>
-              <a>{props.title}</a>
-            </Link>
+            <Link href={props.link}>{props.title}</Link>
           </h3>
           {props.github != null && (
             <IconLink icon="github" href={props.github} />

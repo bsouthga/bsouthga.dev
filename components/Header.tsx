@@ -52,8 +52,8 @@ export default function Header(): JSX.Element {
     <div className={root}>
       <div className={main}>
         <h1 className={name}>
-          <Link href="/">
-            <a className={headerLink}>Ben Southgate</a>
+          <Link href="/" className={headerLink}>
+            Ben Southgate
           </Link>
         </h1>
         <div className={social}>

@@ -60,10 +60,13 @@ function Markdown(props: { content: string }): JSX.Element {
         <ImageWrapper height={400} caption={alt}>
           <Image
             priority
-            alt={alt}
-            layout="fill"
+            alt={alt ?? ""}
             src={src ?? ""}
-            objectFit="contain"
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "contain",
+            }}
           />
         </ImageWrapper>
       ),

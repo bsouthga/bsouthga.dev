@@ -23,10 +23,8 @@ export default function IconLink({
   className,
 }: Props) {
   return (
-    <Link href={href}>
-      <a className={linkStyle}>
-        <Icon size={size} type={icon} className={className} alt={alt} />
-      </a>
+    <Link href={href} className={linkStyle}>
+      <Icon size={size} type={icon} className={className} alt={alt} />
     </Link>
   );
 }
