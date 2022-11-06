@@ -6,7 +6,7 @@ import Link from "next/link";
 import styles from "./PostHeader.module.css";
 
 function getMarkdownLink(id: string) {
-  return `https://github.com/bsouthga/bsouthga.dev/tree/master/public/markdown/${id}.md`;
+  return `https://github.com/bsouthga/bsouthga.dev/tree/main/public/markdown/${id}.md`;
 }
 
 type Props = {
