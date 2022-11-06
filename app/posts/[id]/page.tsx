@@ -4,12 +4,14 @@ import PostHeader from "app/posts/[id]/PostHeader";
 import NotFound from "components/NotFound";
 import PostContent from "app/posts/[id]/PostContent";
 
-export async function generateStaticParams(): Promise<{ id: string }[]> {
+type Params = Readonly<{ id: string }>;
+
+export async function generateStaticParams(): Promise<Params[]> {
   const posts = await getPostFiles();
   return posts.map((id) => ({ id }));
 }
 
-export default async function Post({ params }: { params: { id: string } }) {
+export default async function Post({ params }: { params: Params }) {
   const { id } = params;
   const post = await getPost(id);
 
