@@ -1,16 +1,7 @@
 import classNames from "lib/classNames";
 import { useMemo } from "react";
-import { style } from "typestyle";
 
-const fillIcon = style({
-  fill: "currentColor",
-  stroke: "none",
-});
-
-const strokeIcon = style({
-  stroke: "currentColor",
-  fill: "none",
-});
+import styles from "./Icon.module.css";
 
 export type IconType =
   | "github"
@@ -136,7 +127,10 @@ export function Icon(props: Props) {
       width={size}
       height={size}
       viewBox="0 0 512 512"
-      className={classNames(shouldFillIcon ? fillIcon : strokeIcon, className)}
+      className={classNames(
+        shouldFillIcon ? styles.fillIcon : styles.strokeIcon,
+        className
+      )}
     >
       {alt != null && <title>{alt}</title>}
       {content}

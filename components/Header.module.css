@@ -1,0 +1,32 @@
+
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid currentColor;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  align-items: flex-end;
+}
+
+.name {
+  font-weight: "normal";
+}
+
+.headerLink {
+  text-decoration: none;
+}
+
+.headerLink:hover {
+  text-decoration: underline;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.main {
+  flex-grow: 1;
+}

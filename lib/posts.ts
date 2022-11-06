@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import getConfig from "next/config";
 import sortBy from "lib/sortBy";
 import { Maybe } from "lib/types";
 import compact from "lib/compact";
