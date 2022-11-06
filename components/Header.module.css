@@ -3,9 +3,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  border-bottom-color: currentColor;
-  border-bottom-style: solid;
-  border-bottom-width: 1;
+  border-bottom: 1px solid currentColor;
   margin-bottom: 20px;
   padding-bottom: 10px;
   align-items: flex-end;
