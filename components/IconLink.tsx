@@ -1,11 +1,7 @@
 import Link from "next/link";
 import { Icon, IconType } from "components/Icon";
-import { style } from "typestyle";
 
-const linkStyle = style({
-  lineHeight: "0px",
-  verticalAlign: "middle",
-});
+import styles from "./IconLink.module.css";
 
 type Props = {
   href: string;
@@ -23,7 +19,7 @@ export default function IconLink({
   className,
 }: Props) {
   return (
-    <Link href={href} className={linkStyle}>
+    <Link href={href} className={styles.root}>
       <Icon size={size} type={icon} className={className} alt={alt} />
     </Link>
   );

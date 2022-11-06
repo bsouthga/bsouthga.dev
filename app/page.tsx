@@ -1,5 +1,5 @@
 import Layout from "components/Layout";
-import ItemList from "components/ItemList";
+import ItemList from "app/ItemList";
 
 export default function Home() {
   return (

@@ -1,42 +1,8 @@
 import Link from "next/link";
 import IconLink from "components/IconLink";
 import { IconType } from "components/Icon";
-import { style } from "typestyle";
 
-const root = style({
-  width: "100%",
-  display: "flex",
-  flexDirection: "row",
-  borderBottomColor: "currentColor",
-  borderBottomStyle: "solid",
-  borderBottomWidth: 1,
-  marginBottom: "20px",
-  paddingBottom: "10px",
-  alignItems: "flex-end",
-});
-
-const name = style({
-  fontWeight: "normal",
-});
-
-const headerLink = style({
-  textDecoration: "none",
-  $nest: {
-    ":hover": {
-      textDecoration: "underline",
-    },
-  },
-});
-
-const social = style({
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-});
-
-const main = style({
-  flexGrow: 1,
-});
+import styles from "./Header.module.css";
 
 type IconProps = {
   icon: IconType;
@@ -49,14 +15,14 @@ function HeaderIcon({ href, icon }: IconProps) {
 
 export default function Header(): JSX.Element {
   return (
-    <div className={root}>
-      <div className={main}>
-        <h1 className={name}>
-          <Link href="/" className={headerLink}>
+    <div className={styles.root}>
+      <div className={styles.main}>
+        <h1 className={styles.name}>
+          <Link href="/" className={styles.headerLink}>
             Ben Southgate
           </Link>
         </h1>
-        <div className={social}>
+        <div className={styles.social}>
           <div>@bsouthga -</div>
           <HeaderIcon icon="github" href="https://github.com/bsouthga" />
           <HeaderIcon icon="twitter" href="https://twitter.com/bsouthga" />

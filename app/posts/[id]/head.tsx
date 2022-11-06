@@ -1,4 +1,4 @@
-import PostOpenGraph from "components/PostOpenGraph";
+import PostOpenGraph from "app/posts/[id]/PostOpenGraph";
 import { getPost } from "lib/posts";
 
 export default async function Head({

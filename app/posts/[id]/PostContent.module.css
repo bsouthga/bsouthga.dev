@@ -1,0 +1,10 @@
+
+.paragraph {
+  margin-bottom: 1em;
+}
+
+.footnote {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}

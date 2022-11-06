@@ -1,8 +1,8 @@
 import Layout from "components/Layout";
 import { getPost, getPostFiles } from "lib/posts";
-import PostHeader from "components/PostHeader";
+import PostHeader from "app/posts/[id]/PostHeader";
 import NotFound from "components/NotFound";
-import PostContent from "components/PostContent";
+import PostContent from "app/posts/[id]/PostContent";
 
 export async function generateStaticParams(): Promise<{ id: string }[]> {
   const posts = await getPostFiles();

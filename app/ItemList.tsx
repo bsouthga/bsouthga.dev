@@ -3,46 +3,8 @@ import items from "public/data/items.json";
 import ImageWrapper from "components/ImageWrapper";
 import IconLink from "components/IconLink";
 import Link from "next/link";
-import { style } from "typestyle";
 
-const itemGridStyle = style({
-  width: "100%",
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gridRowGap: "20px",
-  gridColumnGap: "20px",
-  $nest: {
-    "@media (max-width: 800px)": {
-      gridTemplateColumns: "1fr",
-      gridRowGap: "0",
-    },
-  },
-});
-
-const descriptionStyle = style({
-  fontSize: "0.75em",
-  $nest: {
-    "@media (max-width: 800px)": {
-      paddingBottom: "30px",
-      fontSize: "1em",
-    },
-  },
-});
-const contextStyle = style({
-  fontStyle: "italic",
-});
-
-const titleStyle = style({
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  paddingTop: "10px",
-});
-
-const titleHeaderStyle = style({
-  margin: "0px",
-  marginRight: "6px",
-});
+import styles from "./ItemList.module.css";
 
 type ItemProps = {
   title: string;
@@ -71,16 +33,16 @@ function Item(props: ItemProps): JSX.Element {
           />
         </ImageWrapper>
       </a>
-      <div className={descriptionStyle}>
-        <div className={titleStyle}>
-          <h3 className={titleHeaderStyle}>
+      <div className={styles.description}>
+        <div className={styles.title}>
+          <h3 className={styles.titleHeader}>
             <Link href={props.link}>{props.title}</Link>
           </h3>
           {props.github != null && (
             <IconLink icon="github" href={props.github} />
           )}
         </div>
-        <p className={contextStyle}>{props.context}</p>
+        <p className={styles.context}>{props.context}</p>
         <p>{props.description}</p>
       </div>
     </>
@@ -89,7 +51,7 @@ function Item(props: ItemProps): JSX.Element {
 
 export default function ItemList(): JSX.Element {
   return (
-    <div className={itemGridStyle}>
+    <div className={styles.itemGrid}>
       {items.map((item) => (
         <Item {...item} key={item.title} />
       ))}

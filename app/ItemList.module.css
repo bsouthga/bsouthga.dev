@@ -1,0 +1,39 @@
+.itemGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  
+  grid-gap: 20px;
+}
+
+.description {
+  font-size: 0.75em;
+}
+
+.context {
+  font-style: italic;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.titleHeader {
+  margin: 0px;
+  margin-right: 6px;
+}
+
+@media (max-width: 800px) {
+  .itemGrid {
+    grid-template-columns: 1fr;
+    grid-row-gap: 0px;
+  }
+
+  .description {
+    padding-bottom: 30px;
+    font-size: 1em;
+  }
+}
+
