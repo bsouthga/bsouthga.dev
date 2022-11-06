@@ -1,18 +1,23 @@
 import Image from "next/image";
-import items from "public/data/items.json";
 import ImageWrapper from "components/ImageWrapper";
 import IconLink from "components/IconLink";
 import Link from "next/link";
 
 import styles from "./ItemList.module.css";
 
-type ItemProps = {
+export type ItemProps = {
   title: string;
   description: string;
   image: string;
   link: string;
   context: string;
   github?: string | undefined;
+  blurDataURL: string;
+};
+
+const imageStyle = {
+  maxWidth: "100%",
+  height: "auto",
 };
 
 function Item(props: ItemProps): JSX.Element {
@@ -26,10 +31,9 @@ function Item(props: ItemProps): JSX.Element {
             height={300}
             alt={props.title}
             src={`/assets/images/${props.image}`}
-            style={{
-              maxWidth: "100%",
-              height: "auto",
-            }}
+            placeholder="blur"
+            blurDataURL={props.blurDataURL}
+            style={imageStyle}
           />
         </ImageWrapper>
       </a>
@@ -49,7 +53,11 @@ function Item(props: ItemProps): JSX.Element {
   );
 }
 
-export default function ItemList(): JSX.Element {
+export type Props = Readonly<{
+  items: ReadonlyArray<ItemProps>;
+}>;
+
+export default function ItemList({ items }: Props): JSX.Element {
   return (
     <div className={styles.itemGrid}>
       {items.map((item) => (

@@ -33,10 +33,12 @@ const REHYPE: PluggableList = [rehypeWithOptions];
 
 type PostProps = {
   post: PostMetadata;
+  blurDataURLMap?: Map<string, string>;
 };
 
-function Markdown(props: { content: string }): JSX.Element {
-  const { content } = props;
+export default function Post(props: PostProps): JSX.Element {
+  const { post, blurDataURLMap } = props;
+  const { content } = post;
 
   const footnotes: string[] = [];
   function getFootnoteNumber(id: string): number {
@@ -66,7 +68,9 @@ function Markdown(props: { content: string }): JSX.Element {
           alt={alt ?? ""}
           src={src ?? ""}
           fill
-          sizes="100vw"
+          placeholder="blur"
+          blurDataURL={blurDataURLMap?.get(src ?? "")}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{
             objectFit: "contain",
           }}
@@ -123,10 +127,4 @@ function Markdown(props: { content: string }): JSX.Element {
       {content}
     </ReactMarkdown>
   );
-}
-
-export default function Post(props: PostProps): JSX.Element {
-  const { post } = props;
-  const { content } = post;
-  return <Markdown content={content} />;
 }
