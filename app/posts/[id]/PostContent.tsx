@@ -8,11 +8,11 @@ import ImageWrapper from "components/ImageWrapper";
 import footnotes from "remark-footnotes";
 import rehypeKatex from "rehype-katex";
 import { PluggableList } from "react-markdown/lib/react-markdown";
+import PostSyntaxHighlighter from "./PostSyntaxHighlighter";
 
 import styles from "./PostContent.module.css";
 
 import React from "react";
-import PostSyntaxHighlighter from "./PostSyntaxHighlighter";
 
 type ReactMarkdownProps = React.ComponentProps<typeof ReactMarkdown>;
 type ComponentProps = ReactMarkdownProps["components"];
@@ -82,14 +82,18 @@ function Markdown(props: { content: string }): JSX.Element {
       style: _,
       ...props
     }) {
-      return !inline ? (
+      if (inline) {
+        return (
+          <code className={className} {...props}>
+            {children}
+          </code>
+        );
+      }
+
+      return (
         <PostSyntaxHighlighter className={className} {...props}>
           {children}
         </PostSyntaxHighlighter>
-      ) : (
-        <code className={className} {...props}>
-          {children}
-        </code>
       );
     },
     footnoteDefinition: ({ children, identifier }) => {
