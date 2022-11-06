@@ -2,9 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  border-top-color: currentColor;
-  border-top-style: solid;
-  border-top-width: 1;
+  border-top: 1px solid currentColor;
   margin-top: 20px;
   padding-top: 10px;
   margin-bottom: 40px;
