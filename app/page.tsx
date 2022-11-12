@@ -8,7 +8,8 @@ async function getItems(): Promise<ReadonlyArray<ItemProps>> {
   return await Promise.all(
     items.map(async (item) => {
       const plaiceholder = await getPlaiceholder(
-        `/assets/images/${item.image}`
+        `/assets/images/${item.image}`,
+        { size: 24 }
       );
 
       return {

@@ -30,7 +30,7 @@ async function getPostBlurMap(
 
   const pairs: [string, string][] = await Promise.all(
     images.map(async (url) => {
-      const result = await getPlaiceholder(url);
+      const result = await getPlaiceholder(url, { size: 24 });
       return [url, result.base64];
     })
   );
